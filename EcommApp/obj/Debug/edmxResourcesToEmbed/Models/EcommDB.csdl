@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="cart_id" />
+    </Key>
+    <Property Name="cart_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="total" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="coup_id" Type="Int32" />
+    <NavigationProperty Name="coupon" Relationship="Self.FK__cart__coup_id__29572725" FromRole="cart" ToRole="coupons" />
+    <NavigationProperty Name="user" Relationship="Self.FK__cart__user_id__286302EC" FromRole="cart" ToRole="users" />
+    <NavigationProperty Name="cart_items" Relationship="Self.FK__cart_item__cart___20C1E124" FromRole="cart" ToRole="cart_items" />
+    <NavigationProperty Name="orders" Relationship="Self.FK__orders__cart_id__25869641" FromRole="cart" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="cart_items">
+    <Key>
+      <PropertyRef Name="cart_items_id" />
+    </Key>
+    <Property Name="cart_id" Type="Int32" />
+    <Property Name="prod_id" Type="Int32" />
+    <Property Name="item_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="cart_items_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cart" Relationship="Self.FK__cart_item__cart___20C1E124" FromRole="cart_items" ToRole="cart" />
+    <NavigationProperty Name="product" Relationship="Self.FK__cart_item__prod___21B6055D" FromRole="cart_items" ToRole="products" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="event_id" Type="Int32" />
+    <NavigationProperty Name="event" Relationship="Self.FK__categorie__event__2B3F6F97" FromRole="categories" ToRole="events" />
+    <NavigationProperty Name="products" Relationship="Self.FK__products__cat_id__182C9B23" FromRole="categories" ToRole="products" />
+  </EntityType>
+  <EntityType Name="coupon">
+    <Key>
+      <PropertyRef Name="coup_id" />
+    </Key>
+    <Property Name="coup_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="coup_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="disc_pct" Type="Int32" />
+    <NavigationProperty Name="carts" Relationship="Self.FK__cart__coup_id__29572725" FromRole="coupons" ToRole="cart" />
+    <NavigationProperty Name="orders" Relationship="Self.FK__orders__coup_id__267ABA7A" FromRole="coupons" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="event">
+    <Key>
+      <PropertyRef Name="event_id" />
+    </Key>
+    <Property Name="event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="event_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="event_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="disc_pct" Type="Int32" />
+    <NavigationProperty Name="categories" Relationship="Self.FK__categorie__event__2B3F6F97" FromRole="events" ToRole="categories" />
+    <NavigationProperty Name="orders" Relationship="Self.FK__orders__event_id__276EDEB3" FromRole="events" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="cart_id" Type="Int32" />
+    <Property Name="coup_id" Type="Int32" />
+    <Property Name="event_id" Type="Int32" />
+    <Property Name="paym_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="order_date" Type="DateTime" Precision="0" />
+    <Property Name="del_date" Type="DateTime" Precision="0" />
+    <Property Name="del_add" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="grand_total" Type="Int32" />
+    <Property Name="total" Type="Int32" />
+    <NavigationProperty Name="cart" Relationship="Self.FK__orders__cart_id__25869641" FromRole="orders" ToRole="cart" />
+    <NavigationProperty Name="coupon" Relationship="Self.FK__orders__coup_id__267ABA7A" FromRole="orders" ToRole="coupons" />
+    <NavigationProperty Name="event" Relationship="Self.FK__orders__event_id__276EDEB3" FromRole="orders" ToRole="events" />
+    <NavigationProperty Name="user" Relationship="Self.FK__orders__user_id__24927208" FromRole="orders" ToRole="users" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="prod_id" />
+    </Key>
+    <Property Name="prod_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_id" Type="Int32" />
+    <Property Name="prod_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stock" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="prod_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="prod_desc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cart_items" Relationship="Self.FK__cart_item__prod___21B6055D" FromRole="products" ToRole="cart_items" />
+    <NavigationProperty Name="category" Relationship="Self.FK__products__cat_id__182C9B23" FromRole="products" ToRole="categories" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="carts" Relationship="Self.FK__cart__user_id__286302EC" FromRole="users" ToRole="cart" />
+    <NavigationProperty Name="orders" Relationship="Self.FK__orders__user_id__24927208" FromRole="users" ToRole="orders" />
+  </EntityType>
+  <Association Name="FK__cart__coup_id__29572725">
+    <End Role="coupons" Type="Self.coupon" Multiplicity="0..1" />
+    <End Role="cart" Type="Self.cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coupons">
+        <PropertyRef Name="coup_id" />
+      </Principal>
+      <Dependent Role="cart">
+        <PropertyRef Name="coup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cart__user_id__286302EC">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="cart" Type="Self.cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="cart">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cart_item__cart___20C1E124">
+    <End Role="cart" Type="Self.cart" Multiplicity="0..1" />
+    <End Role="cart_items" Type="Self.cart_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cart">
+        <PropertyRef Name="cart_id" />
+      </Principal>
+      <Dependent Role="cart_items">
+        <PropertyRef Name="cart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orders__cart_id__25869641">
+    <End Role="cart" Type="Self.cart" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cart">
+        <PropertyRef Name="cart_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="cart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cart_item__prod___21B6055D">
+    <End Role="products" Type="Self.product" Multiplicity="0..1" />
+    <End Role="cart_items" Type="Self.cart_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="prod_id" />
+      </Principal>
+      <Dependent Role="cart_items">
+        <PropertyRef Name="prod_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__categorie__event__2B3F6F97">
+    <End Role="events" Type="Self.event" Multiplicity="0..1" />
+    <End Role="categories" Type="Self.category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="events">
+        <PropertyRef Name="event_id" />
+      </Principal>
+      <Dependent Role="categories">
+        <PropertyRef Name="event_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__products__cat_id__182C9B23">
+    <End Role="categories" Type="Self.category" Multiplicity="0..1" />
+    <End Role="products" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="cat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orders__coup_id__267ABA7A">
+    <End Role="coupons" Type="Self.coupon" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coupons">
+        <PropertyRef Name="coup_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="coup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orders__event_id__276EDEB3">
+    <End Role="events" Type="Self.event" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="events">
+        <PropertyRef Name="event_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="event_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orders__user_id__24927208">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EcommDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="carts" EntityType="Self.cart" />
+    <EntitySet Name="cart_items" EntityType="Self.cart_items" />
+    <EntitySet Name="categories" EntityType="Self.category" />
+    <EntitySet Name="coupons" EntityType="Self.coupon" />
+    <EntitySet Name="events" EntityType="Self.event" />
+    <EntitySet Name="orders" EntityType="Self.order" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK__cart__coup_id__29572725" Association="Self.FK__cart__coup_id__29572725">
+      <End Role="coupons" EntitySet="coupons" />
+      <End Role="cart" EntitySet="carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cart__user_id__286302EC" Association="Self.FK__cart__user_id__286302EC">
+      <End Role="users" EntitySet="users" />
+      <End Role="cart" EntitySet="carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cart_item__cart___20C1E124" Association="Self.FK__cart_item__cart___20C1E124">
+      <End Role="cart" EntitySet="carts" />
+      <End Role="cart_items" EntitySet="cart_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orders__cart_id__25869641" Association="Self.FK__orders__cart_id__25869641">
+      <End Role="cart" EntitySet="carts" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cart_item__prod___21B6055D" Association="Self.FK__cart_item__prod___21B6055D">
+      <End Role="products" EntitySet="products" />
+      <End Role="cart_items" EntitySet="cart_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__categorie__event__2B3F6F97" Association="Self.FK__categorie__event__2B3F6F97">
+      <End Role="events" EntitySet="events" />
+      <End Role="categories" EntitySet="categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__products__cat_id__182C9B23" Association="Self.FK__products__cat_id__182C9B23">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orders__coup_id__267ABA7A" Association="Self.FK__orders__coup_id__267ABA7A">
+      <End Role="coupons" EntitySet="coupons" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orders__event_id__276EDEB3" Association="Self.FK__orders__event_id__276EDEB3">
+      <End Role="events" EntitySet="events" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orders__user_id__24927208" Association="Self.FK__orders__user_id__24927208">
+      <End Role="users" EntitySet="users" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -472,3 +472,7 @@ C:\Users\Atos\Documents\Capstone\House-of-Fashion\EcommApp\obj\Debug\EcommApp.cs
 C:\Users\Atos\Documents\Capstone\House-of-Fashion\EcommApp\obj\Debug\EcommApp.csproj.CopyComplete
 C:\Users\Atos\Documents\Capstone\House-of-Fashion\EcommApp\obj\Debug\EcommApp.dll
 C:\Users\Atos\Documents\Capstone\House-of-Fashion\EcommApp\obj\Debug\EcommApp.pdb
+C:\Users\Atos\Documents\Capstone\House-of-Fashion\EcommApp\bin\EntityFramework.dll
+C:\Users\Atos\Documents\Capstone\House-of-Fashion\EcommApp\bin\EntityFramework.SqlServer.dll
+C:\Users\Atos\Documents\Capstone\House-of-Fashion\EcommApp\bin\EntityFramework.xml
+C:\Users\Atos\Documents\Capstone\House-of-Fashion\EcommApp\bin\EntityFramework.SqlServer.xml
