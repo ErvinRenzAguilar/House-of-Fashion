@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - @ViewBag.Title</title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background-color: #D19C97;
+        }
+    </style>
+    <link rel="stylesheet" href="~/Content/adminstyle.css">
+</head>
+<body>
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1>House of Fashion</h1>
+        </div>
+        <ul>
+            <a href="#">
+            <li>Products</li></a>
+            <a href="#">
+            <li>Events</li></a>
+            <a href="#">
+            <li>Coupons</li></a>
+            <a href="#">
+            <li>Logout</li></a>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <h1>Admin Page - @ViewBag.Title</h1>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+</body>
+</html>
