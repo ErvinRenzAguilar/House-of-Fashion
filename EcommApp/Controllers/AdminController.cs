@@ -9,7 +9,22 @@ namespace EcommApp.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
-        public ActionResult Admin()
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult ManageProducts()
+        {
+            return View();
+        }
+
+        public ActionResult ManageEvents()
+        {
+            return View();
+        }
+
+        public ActionResult ManageCoupons()
         {
             return View();
         }
