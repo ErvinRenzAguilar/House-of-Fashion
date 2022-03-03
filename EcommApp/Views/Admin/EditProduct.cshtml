@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "EditProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content">
+    <div class="cards">
+    </div>
+    <div class="content-2">
+        <div class="product-listing">
+            <div class="title">
+                <h2>Edit Products</h2>
+                <a href="#" class="btn">Save Product</a>
+            </div>
+            <div class="formBx">
+                <br/>
+                <h2>Edit existing Product</h2>
+                <table>
+                    <tr>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    <tr>
+                        <td><img src="~/Media/admin/short1.jfif" alt=""></td>
+                        <td>Men's Shorts (Blue)</td>
+                        <td>$39.99</td>
+                        <td>369</td>
+                    </tr>
+                </table>
+                <form>
+                    <div class="inputBx">
+                        <span>Name</span>
+                        <input type="text" name="" placeholder="Men's Shorts (Blue)">
+                    </div>
+                    <div class="inputBx">
+                        <span>Description</span>
+                        <input type="text" name="" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-select">
+                            <span class="select">Select Category</span>
+                        </div>
+                        <div class="dropdown-list">
+                            <div class="dropdown-list__item">Shirt</div>
+                            <div class="dropdown-list__item">Dress</div>
+                            <div class="dropdown-list__item">Shorts</div>
+                            <div class="dropdown-list__item">Jeans</div>
+                            <div class="dropdown-list__item">Swimwear</div>
+                        </div>
+                    </div>
+                    <div class="inputBx">
+                        <span>Price</span>
+                        <input type="text" name="" placeholder="$39.99">
+                    </div>
+                    <h3>Image</h3>
+                    <div class="inputBx">
+                        <button type="submit" value="Choose File" name=""><span>Choose File</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

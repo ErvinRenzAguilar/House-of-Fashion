@@ -19,7 +19,37 @@ namespace EcommApp.Controllers
             return View();
         }
 
+        public ActionResult AddProduct()
+        {
+            return View();
+        }
+
+        public ActionResult EditProduct()
+        {
+            return View();
+        }
+
+        public ActionResult DeleteProduct()
+        {
+            return View();
+        }
+
         public ActionResult ManageEvents()
+        {
+            return View();
+        }
+
+        public ActionResult AddEvent()
+        {
+            return View();
+        }
+
+        public ActionResult EditEvent()
+        {
+            return View();
+        }
+
+        public ActionResult DeleteEvent()
         {
             return View();
         }
@@ -28,5 +58,21 @@ namespace EcommApp.Controllers
         {
             return View();
         }
+
+        public ActionResult AddCoupon()
+        {
+            return View();
+        }
+
+        public ActionResult EditCoupon()
+        {
+            return View();
+        }
+
+        public ActionResult DeleteCoupon()
+        {
+            return View();
+        }
+
     }
 }

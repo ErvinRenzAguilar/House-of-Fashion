@@ -175,7 +175,7 @@ th,td{
     height: 600px;
     width: 400px;
     flex: 5;
-    justify-content: space-between;
+    justify-content: align;
     background: white;
     margin: 0 25px 25px 25px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -194,4 +194,87 @@ th,td{
 .container .content .content-2 .product-listing table td:nth-child(1) img {
     height: 90px;
     width: 90px;
+}
+.content-2 .formBx {
+    width: 30%;
+}
+.content-2 .inputbox{
+    width: 10%;
+    margin-bottom: 30px;
+    
+}
+.content-2 .formBx h2 {
+    color: #D19C97;
+    font-weight: 600;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #D19C97;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+.content-2 .formBx .inputBx {
+    margin-bottom: 20px;
+}
+.content-2 .formBx .inputBx span {
+    font-size: 15px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: black;
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+.content-2 .formBx .inputBx input {
+    width: 100%;
+    padding: 10px 20px;
+        outline: none;
+        font-weight: 400;
+        border: 1px solid #607d8b;
+        font-size: 16px;
+        letter-spacing: 1px;
+        color: #607d8b;
+        background: transparent;
+        border-radius: 30px;
+}
+.dropdown {
+    width: 30rem;
+    position: relative;
+}
+.dropdown:hover .dropdown-list{
+    opacity: 1;
+   visibility: visible;
+}
+.dropdown-select{
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid #607d8b;
+    width: 50%;
+    justify-content: space-between;
+    font-size: 16px;
+    cursor: pointer;
+}
+.dropdown-list{
+    border-radius: 4px;
+    background-color: rgb(241, 239, 239);
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    transition: opacity 0.2s linear, visibility 0.2s linear;
+    cursor: pointer;
+}
+.dropdown-list__item{
+    padding: 1rem;
+    font-size: 16px;
+}
+.dropdown-list__item:hover{
+    color: #D19C97;
+    background: white;
+    padding: 10px 20px;
+    border: 2px solid #D19C97;
+    border-radius: 30px;
 }
