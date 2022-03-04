@@ -265,6 +265,7 @@
     <Content Include="Media\top shop\female.jpg" />
     <Content Include="Media\top shop\male.jpg" />
     <Content Include="Media\top shop\oversized.jpg" />
+    <Content Include="Media\admin.jpeg" />
     <Content Include="Media\top shop\prod10.jpg" />
     <Content Include="Media\top shop\prod8.jpg" />
     <Content Include="Media\top shop\prod9.jfif" />
@@ -335,6 +336,7 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Admin\AddProduct.cshtml" />
     <Content Include="Views\Admin\EditProduct.cshtml" />
+    <Content Include="Views\Account\AdminLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

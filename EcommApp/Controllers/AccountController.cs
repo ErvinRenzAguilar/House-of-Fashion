@@ -75,5 +75,10 @@ namespace EcommApp.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public ActionResult AdminLogin()
+        {
+            return View();
+        }
     }
-}
+}       
