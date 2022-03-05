@@ -334,6 +334,10 @@
     <Content Include="Views\Admin\AddProduct.cshtml" />
     <Content Include="Views\Admin\EditProduct.cshtml" />
     <Content Include="Views\Account\AdminLogin.cshtml" />
+    <Content Include="Views\Admin\AddEvent.cshtml" />
+    <Content Include="Views\Admin\AddCoupon.cshtml" />
+    <Content Include="Views\Admin\EditCoupon.cshtml" />
+    <Content Include="Views\Admin\EditEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
