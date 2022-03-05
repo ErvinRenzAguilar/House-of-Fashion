@@ -17,18 +17,15 @@ namespace EcommApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public @event()
         {
-            this.categories = new HashSet<category>();
-            this.orders = new HashSet<order>();
+            this.coupons = new HashSet<coupon>();
         }
     
-        public int event_id { get; set; }
-        public string event_name { get; set; }
-        public string event_date { get; set; }
-        public Nullable<int> disc_pct { get; set; }
+        public int ev_id { get; set; }
+        public string ev_name { get; set; }
+        public System.DateTime start_date { get; set; }
+        public System.DateTime end_date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<category> categories { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<order> orders { get; set; }
+        public virtual ICollection<coupon> coupons { get; set; }
     }
 }

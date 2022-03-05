@@ -26,9 +26,8 @@ namespace EcommApp.Models
         }
     
         public virtual DbSet<admin> admins { get; set; }
-        public virtual DbSet<cart> carts { get; set; }
         public virtual DbSet<cart_items> cart_items { get; set; }
-        public virtual DbSet<category> categories { get; set; }
+        public virtual DbSet<cart> carts { get; set; }
         public virtual DbSet<coupon> coupons { get; set; }
         public virtual DbSet<@event> events { get; set; }
         public virtual DbSet<order> orders { get; set; }

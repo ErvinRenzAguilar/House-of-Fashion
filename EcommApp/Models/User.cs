@@ -12,7 +12,8 @@ namespace EcommApp.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class user
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +24,7 @@ namespace EcommApp.Models
         }
 
         [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int user_id { get; set; }
 
         [Required(ErrorMessage = "First Name is required.")]
@@ -39,9 +41,9 @@ namespace EcommApp.Models
         [DataType(DataType.Password)]
         public string password { get; set; }
 
-        [Compare("password", ErrorMessage = "Please confirm your password.")]
-        [DataType(DataType.Password)]
-        public string confirmPassword { get; set; }
+        //[Compare("password", ErrorMessage = "Please confirm your password.")]
+        //[DataType(DataType.Password)]
+        //public string confirmPassword { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cart> carts { get; set; }

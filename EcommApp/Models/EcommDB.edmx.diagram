@@ -4,26 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2a5844c38106488aa79eb695e297ef7f" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.admin" Width="1.5" PointX="2.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.cart" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.cart_items" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.category" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.coupon" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.event" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.order" Width="1.5" PointX="8.25" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.product" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.user" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="Model.FK__cart__coup_id__29572725" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__cart__user_id__286302EC" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__cart_item__cart___20C1E124" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__orders__cart_id__25869641" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__cart_item__prod___21B6055D" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__categorie__event__2B3F6F97" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__products__cat_id__182C9B23" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__orders__coup_id__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__orders__event_id__276EDEB3" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__orders__user_id__24927208" ManuallyRouted="false" />
+      <Diagram DiagramId="fe86ccaf91e444b381c621c84a16a337" Name="Diagram1">
+        <EntityTypeShape EntityType="EcommDBModel.admin" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcommDBModel.cart_items" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcommDBModel.cart" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcommDBModel.coupon" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcommDBModel.event" Width="1.5" PointX="1.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcommDBModel.order" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcommDBModel.product" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcommDBModel.user" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="EcommDBModel.FK_cart_items_carts" ManuallyRouted="false" />
+        <AssociationConnector Association="EcommDBModel.FK_cart_items_products" ManuallyRouted="false" />
+        <AssociationConnector Association="EcommDBModel.FK_carts_coupons" ManuallyRouted="false" />
+        <AssociationConnector Association="EcommDBModel.FK_carts_users" ManuallyRouted="false" />
+        <AssociationConnector Association="EcommDBModel.FK_Order_carts" ManuallyRouted="false" />
+        <AssociationConnector Association="EcommDBModel.FK_coupons_events" ManuallyRouted="false" />
+        <AssociationConnector Association="EcommDBModel.FK_Order_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="EcommDBModel.FK_Order_users" ManuallyRouted="false" />
+        <AssociationConnector Association="EcommDBModel.FK_products_products" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

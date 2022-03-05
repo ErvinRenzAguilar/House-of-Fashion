@@ -21,16 +21,15 @@ namespace EcommApp.Models
         }
     
         public int prod_id { get; set; }
-        public Nullable<int> cat_id { get; set; }
         public string prod_name { get; set; }
-        public Nullable<int> stock { get; set; }
-        public Nullable<int> price { get; set; }
-        public string color { get; set; }
-        public byte[] prod_image { get; set; }
+        public int stock { get; set; }
+        public decimal price { get; set; }
+        public string prod_image { get; set; }
         public string prod_desc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cart_items> cart_items { get; set; }
-        public virtual category category { get; set; }
+        public virtual product products1 { get; set; }
+        public virtual product product1 { get; set; }
     }
 }

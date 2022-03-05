@@ -14,12 +14,11 @@ namespace EcommApp.Models
     
     public partial class cart_items
     {
-        public Nullable<int> cart_id { get; set; }
-        public Nullable<int> prod_id { get; set; }
+        public int cart_id { get; set; }
+        public int prod_id { get; set; }
         public string item_name { get; set; }
         public int quantity { get; set; }
-        public int price { get; set; }
-        public int cart_items_id { get; set; }
+        public decimal price { get; set; }
     
         public virtual cart cart { get; set; }
         public virtual product product { get; set; }

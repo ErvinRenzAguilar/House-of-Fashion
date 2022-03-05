@@ -146,9 +146,6 @@
     <Compile Include="Models\cart_items.cs">
       <DependentUpon>EcommDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\category.cs">
-      <DependentUpon>EcommDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\coupon.cs">
       <DependentUpon>EcommDB.tt</DependentUpon>
     </Compile>

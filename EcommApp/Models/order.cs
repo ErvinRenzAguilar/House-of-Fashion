@@ -15,20 +15,17 @@ namespace EcommApp.Models
     public partial class order
     {
         public int order_id { get; set; }
-        public Nullable<int> user_id { get; set; }
-        public Nullable<int> cart_id { get; set; }
-        public Nullable<int> coup_id { get; set; }
-        public Nullable<int> event_id { get; set; }
+        public int user_id { get; set; }
+        public int coup_id { get; set; }
+        public int cart_id { get; set; }
         public string paym_type { get; set; }
-        public Nullable<System.DateTime> order_date { get; set; }
-        public Nullable<System.DateTime> del_date { get; set; }
-        public string del_add { get; set; }
-        public Nullable<int> grand_total { get; set; }
-        public Nullable<int> total { get; set; }
+        public System.DateTime order_date { get; set; }
+        public System.DateTime del_date { get; set; }
+        public decimal grant_total { get; set; }
     
         public virtual cart cart { get; set; }
-        public virtual coupon coupon { get; set; }
-        public virtual @event @event { get; set; }
+        public virtual order order1 { get; set; }
+        public virtual order order2 { get; set; }
         public virtual user user { get; set; }
     }
 }
