@@ -1,0 +1,473 @@
+﻿++Solution 'EcommApp' ‎(1 of 1 project)
+i:{00000000-0000-0000-0000-000000000000}:EcommApp.sln
+++EcommApp
+i:{00000000-0000-0000-0000-000000000000}:EcommApp
+++Properties
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\properties\
+++References
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++App_Data
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\app_data\
+++App_Start
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\app_start\
+++Content
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\
+++Controllers
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\controllers\
+++AccountController.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\controllers\accountcontroller.cs
+++AdminController.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\controllers\admincontroller.cs
+++CheckoutController.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\controllers\checkoutcontroller.cs
+++DetailsController.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\controllers\detailscontroller.cs
+++HomeController.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\controllers\homecontroller.cs
+++fonts
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\fonts\
+++glyphicons-halflings-regular.eot
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\fonts\glyphicons-halflings-regular.eot
+++glyphicons-halflings-regular.svg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\fonts\glyphicons-halflings-regular.svg
+++glyphicons-halflings-regular.ttf
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\fonts\glyphicons-halflings-regular.ttf
+++glyphicons-halflings-regular.woff
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\fonts\glyphicons-halflings-regular.woff
+++glyphicons-halflings-regular.woff2
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\fonts\glyphicons-halflings-regular.woff2
+++js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\js\
+++lib
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\lib\
+++Media
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\
+++admin
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\
+++bottoms shop
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\
+++dress shop
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\
+++shorts shop
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\
+++swimwear shop
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\
+++top shop
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\
+++female.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\female.jpg
+++male.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\male.jpg
+++oversized.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\oversized.jpg
+++prod10.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\prod10.jpg
+++prod8.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\prod8.jpg
+++prod9.jfif
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\prod9.jfif
+++product-1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\product-1.jpg
+++product-2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\product-2.jpg
+++product-3.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\product-3.jpg
+++product-6.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\product-6.jpg
+++top5.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\top5.jpg
+++top7.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\top shop\top7.jpg
+++admin.jpeg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin.jpeg
+++c1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\c1.jpg
+++carousel-1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\carousel-1.jpg
+++carousel-2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\carousel-2.jpg
+++cat-1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\cat-1.jpg
+++cat-2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\cat-2.jpg
+++cat-3.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\cat-3.jpg
+++cat-4.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\cat-4.jpg
+++cat-5.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\cat-5.jpg
+++cat-6.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\cat-6.jpg
+++fas.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\fas.jpg
+++fas1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\fas1.jpg
+++offer-1.png
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\offer-1.png
+++offer.jpeg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\offer.jpeg
+++outfit.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\outfit.jpg
+++polo-shirt.png
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\polo-shirt.png
+++Models
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\
+++Scripts
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\
+++Views
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\
+++Account
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\account\
+++AdminLogin.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\account\adminlogin.cshtml
+++Index.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\account\index.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\index.cshtml
+++Login.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\account\login.cshtml
+++Register.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\account\register.cshtml
+++Admin
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\admin\
+++Checkout
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\checkout\
+++Cart.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\checkout\cart.cshtml
+++Payment.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\checkout\payment.cshtml
+++Details
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\details\
+++Home
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\
+++App_LocalResources
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\app_localresources\
+++AboutUs.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\aboutus.cshtml
+++Dresses.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\dresses.cshtml
+++Jeans.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\jeans.cshtml
+++Shirt.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\shirt.cshtml
+++Shop.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\shop.cshtml
+++Shorts.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\shorts.cshtml
+++Swim.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\home\swim.cshtml
+++Shared
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\shared\
+++_ViewStart.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\_viewstart.cshtml
+++Web.config
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\web.config
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\web.config
+++favicon.ico
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\favicon.ico
+++Global.asax
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\global.asax
+++packages.config
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\packages.config
+++AssemblyInfo.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\properties\assemblyinfo.cs
+++Antlr3.Runtime
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++EntityFramework
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++EntityFramework.SqlServer
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++Microsoft.CodeDom.Providers.DotNetCompilerPlatform
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++Microsoft.CSharp
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++Microsoft.Web.Infrastructure
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++Newtonsoft.Json
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.ComponentModel.DataAnnotations
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Configuration
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Core
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Data
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Data.DataSetExtensions
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Drawing
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.EnterpriseServices
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Net.Http
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Net.Http.WebRequest
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Runtime.Serialization
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Security
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.Abstractions
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.ApplicationServices
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.DynamicData
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.Entity
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.Extensions
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.Helpers
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.Mvc
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.Optimization
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.Razor
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.Routing
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.Services
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.WebPages
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.WebPages.Deployment
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Web.WebPages.Razor
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Xml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++System.Xml.Linq
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++WebGrease
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:
+++BundleConfig.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\app_start\bundleconfig.cs
+++FilterConfig.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\app_start\filterconfig.cs
+++RouteConfig.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\app_start\routeconfig.cs
+++adminstyle.css
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\adminstyle.css
+++bootstrap-theme.css
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\bootstrap-theme.css
+++bootstrap-theme.css.map
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\bootstrap-theme.css.map
+++bootstrap-theme.min.css
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\bootstrap-theme.min.css
+++bootstrap-theme.min.css.map
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\bootstrap-theme.min.css.map
+++bootstrap.css
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\bootstrap.css
+++bootstrap.css.map
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\bootstrap.css.map
+++bootstrap.min.css
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\bootstrap.min.css
+++bootstrap.min.css.map
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\bootstrap.min.css.map
+++Site.css
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\site.css
+++style.css
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\content\style.css
+++main.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\js\main.js
+++easing
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\lib\easing\
+++owlcarousel
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\lib\owlcarousel\
+++j.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\j.jpg
+++short1.jfif
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\short1.jfif
+++short10.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\short10.jpg
+++short2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\short2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\short2.jpg
+++short3.jfif
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\short3.jfif
+++short4.jfif
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\short4.jfif
+++short5.jfif
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\short5.jfif
+++short6.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\short6.jpg
+++short8.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\short8.jpg
+++short9.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\admin\short9.jpg
+++b1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\b1.jpg
+++b2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\b2.jpg
+++j10.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\j10.jpg
+++j11.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\j11.jpg
+++j8.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\j8.jpg
+++jeans-1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\jeans-1.jpg
+++jeans-2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\jeans-2.jpg
+++jeans5.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\jeans5.jpg
+++jeans6.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\jeans6.jpg
+++jeans7.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\bottoms shop\jeans7.jpg
+++dress-1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-1.jpg
+++dress-10.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-10.jpg
+++dress-2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-2.jpg
+++dress-3.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-3.jpg
+++dress-4.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-4.jpg
+++dress-5.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-5.jpg
+++dress-6.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-6.jpg
+++dress-7.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-7.jpg
+++dress-8.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-8.jpg
+++dress-9.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\dress shop\dress-9.jpg
+++s10.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\s10.jpg
+++s4.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\s4.jpg
+++s5.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\s5.jpg
+++s6.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\s6.jpg
+++s7.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\s7.jpg
+++s8.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\s8.jpg
+++s9.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\s9.jpg
+++short-1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\short-1.jpg
+++short-2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\shorts shop\short-2.jpg
+++swim-1.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-1.jpg
+++swim-10.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-10.jpg
+++swim-2.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-2.jpg
+++swim-3.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-3.jpg
+++swim-4.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-4.jpg
+++swim-5.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-5.jpg
+++swim-6.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-6.jpg
+++swim-7.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-7.jpg
+++swim-8.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-8.jpg
+++swim-9.jpg
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\media\swimwear shop\swim-9.jpg
+++bootstrap.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\bootstrap.js
+++bootstrap.min.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\bootstrap.min.js
+++jquery-3.4.1.intellisense.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery-3.4.1.intellisense.js
+++jquery-3.4.1.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery-3.4.1.js
+++jquery-3.4.1.min.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery-3.4.1.min.js
+++jquery-3.4.1.min.map
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery-3.4.1.min.map
+++jquery-3.4.1.slim.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery-3.4.1.slim.js
+++jquery-3.4.1.slim.min.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery-3.4.1.slim.min.js
+++jquery-3.4.1.slim.min.map
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery-3.4.1.slim.min.map
+++jquery.validate-vsdoc.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery.validate-vsdoc.js
+++jquery.validate.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery.validate.js
+++jquery.validate.min.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery.validate.min.js
+++jquery.validate.unobtrusive.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery.validate.unobtrusive.js
+++jquery.validate.unobtrusive.min.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\jquery.validate.unobtrusive.min.js
+++modernizr-2.8.3.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\scripts\modernizr-2.8.3.js
+++AddProduct.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\admin\addproduct.cshtml
+++EditProduct.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\admin\editproduct.cshtml
+++ManageCoupons.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\admin\managecoupons.cshtml
+++ManageEvents.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\admin\manageevents.cshtml
+++ManageProducts.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\admin\manageproducts.cshtml
+++Details.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\details\details.cshtml
+++_AdminLayout.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\shared\_adminlayout.cshtml
+++_Layout.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\shared\_layout.cshtml
+++Error.cshtml
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\views\shared\error.cshtml
+++Global.asax.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\global.asax.cs
+++Web.Debug.config
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\web.debug.config
+++Web.Release.config
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\web.release.config
+++easing.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\lib\easing\easing.js
+++easing.min.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\lib\easing\easing.min.js
+++owl.carousel.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\lib\owlcarousel\owl.carousel.js
+++owl.carousel.min.js
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\lib\owlcarousel\owl.carousel.min.js
+++EcommDB.edmx
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\ecommdb.edmx
+++EcommDB.Context.tt
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\ecommdb.context.tt
+++EcommDB.Context.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\ecommdb.context.cs
+++EcommDB.Designer.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\ecommdb.designer.cs
+++EcommDB.edmx.diagram
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\ecommdb.edmx.diagram
+++EcommDB.tt
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\ecommdb.tt
+++admin.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\admin.cs
+++cart.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\cart.cs
+++cart_items.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\cart_items.cs
+++coupon.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\coupon.cs
+++EcommDB.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\ecommdb.cs
+++event.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\event.cs
+++Order.cs
+++product.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\product.cs
+++user.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\user.cs
+++NewFolder1
+++order.cs
+i:{6e2ae9e3-3e2b-40df-84c0-2cac0488de1b}:c:\users\atos\documents\house of fashion\house-of-fashion\ecommapp\models\order.cs
