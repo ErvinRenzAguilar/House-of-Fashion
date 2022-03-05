@@ -16,62 +16,146 @@ namespace EcommApp.Controllers
 
         public ActionResult ManageProducts()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult AddProduct()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult EditProduct()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult DeleteProduct()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult ManageEvents()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult AddEvent()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult EditEvent()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult DeleteEvent()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult ManageCoupons()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult AddCoupon()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult EditCoupon()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
         public ActionResult DeleteCoupon()
         {
-            return View();
+            if (Session["admin_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
         }
 
     }

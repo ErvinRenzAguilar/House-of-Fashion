@@ -103,9 +103,36 @@ namespace EcommApp.Controllers
             Response.Cookies.Clear();
             return RedirectToAction("Login");
         }
+        //Admin Login
         public ActionResult AdminLogin()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AdminLogin(admin adminAccount)
+        {
+            var defaultAdmin = db.admins.SingleOrDefault(u => u.email == adminAccount.email && u.password == adminAccount.password);
+            if(defaultAdmin != null)
+            {
+                Session["admin_id"] = defaultAdmin.admin_id.ToString();
+                Session["email"] = defaultAdmin.email.ToString();
+                return RedirectToAction("ManageProducts", "Admin");
+            }
+            else
+            {
+                ModelState.AddModelError("", "You do not have administrator access!");
+            }
+            return View();
+        }
+
+        public ActionResult AdminLogout()
+        {
+            Session.Remove("admin_id");
+            Session.Abandon();
+            Session.Clear();
+            Response.Cookies.Clear();
+            return RedirectToAction("AdminLogin");
         }
     }
 }       

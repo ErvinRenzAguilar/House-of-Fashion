@@ -41,7 +41,6 @@ namespace EcommApp.Models
         [DataType(DataType.Password)]
         public string password { get; set; }
 
-        [NotMapped]
         [Compare("password", ErrorMessage = "Please confirm your password.")]
         [DataType(DataType.Password)]
         public string confirmPassword { get; set; }

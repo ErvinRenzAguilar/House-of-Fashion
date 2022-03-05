@@ -4,6 +4,7 @@
     <EntitySetMapping Name="admins">
       <EntityTypeMapping TypeName="EcommDBModel.admin">
         <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="admin_id" ColumnName="admin_id" />
           <ScalarProperty Name="first_name" ColumnName="first_name" />
           <ScalarProperty Name="last_name" ColumnName="last_name" />
