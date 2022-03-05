@@ -15,64 +15,96 @@ namespace EcommApp.Controllers
 
         public ActionResult Shop()
         {
-            return View();
+            if(Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
 
-        public ActionResult Sale()
-        {
-            return View();
-        }
         public ActionResult Shirt()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
-        public ActionResult Shirt2()
-        {
-            return View();
-        }
-        public ActionResult Shop2()
-        {
-            return View();
-        }
+       
         public ActionResult Dresses()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
         public ActionResult Dresses2()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
         public ActionResult Jeans()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
-        public ActionResult Jeans2()
-        {
-            return View();
-        }
+    
         public ActionResult Shorts()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
-        public ActionResult Shorts2()
-        {
-            return View();
-        }
+       
         public ActionResult Swim()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
-        public ActionResult Swim2()
-        {
-            return View();
-        }
-        public ActionResult Sale2()
-        {
-            return View();
-        }
+        
         public ActionResult AboutUs()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
     }
 }

@@ -73,7 +73,7 @@ namespace EcommApp.Controllers
             {
                 Session["user_id"] = user.user_id.ToString();
                 Session["email"] = user.email.ToString();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Shop", "Home");
             }
             else
             {
@@ -95,7 +95,14 @@ namespace EcommApp.Controllers
             return RedirectToAction("Index");
 
         }
-
+        public ActionResult Logout()
+        {
+            Session.Remove("user_id");
+            Session.Abandon();
+            Session.Clear();
+            Response.Cookies.Clear();
+            return RedirectToAction("Login");
+        }
         public ActionResult AdminLogin()
         {
             return View();

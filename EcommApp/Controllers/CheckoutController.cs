@@ -11,12 +11,26 @@ namespace EcommApp.Controllers
         // GET: Checkout
         public ActionResult Cart()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
 
         public ActionResult Payment()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
     }
 }

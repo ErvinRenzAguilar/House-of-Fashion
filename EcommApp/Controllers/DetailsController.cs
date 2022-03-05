@@ -11,7 +11,14 @@ namespace EcommApp.Controllers
         // GET: Details
         public ActionResult Details()
         {
-            return View();
+            if (Session["user_id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
     }
 }
