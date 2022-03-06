@@ -33,5 +33,6 @@ namespace EcommApp.Models
         public virtual DbSet<order> orders { get; set; }
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<Table> Tables { get; set; }
     }
 }

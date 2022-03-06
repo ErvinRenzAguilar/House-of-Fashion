@@ -26,6 +26,7 @@ namespace EcommApp.Models
         public decimal price { get; set; }
         public string prod_image { get; set; }
         public string prod_desc { get; set; }
+        public string product_cat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cart_items> cart_items { get; set; }

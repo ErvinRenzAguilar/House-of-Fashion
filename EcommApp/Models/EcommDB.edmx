@@ -73,6 +73,14 @@
           <Property Name="price" Type="numeric" Precision="18" Scale="2" Nullable="false" />
           <Property Name="prod_image" Type="varchar" MaxLength="50" />
           <Property Name="prod_desc" Type="varchar" MaxLength="50" />
+          <Property Name="product_cat" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cat_name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -200,6 +208,7 @@
           <EntitySet Name="events" EntityType="Self.events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_cart_items_carts" Association="Self.FK_cart_items_carts">
             <End Role="carts" EntitySet="carts" />
@@ -326,6 +335,7 @@
           <NavigationProperty Name="cart_items" Relationship="Self.FK_cart_items_products" FromRole="products" ToRole="cart_items" />
           <NavigationProperty Name="products1" Relationship="Self.FK_products_products" FromRole="products" ToRole="products1" />
           <NavigationProperty Name="product1" Relationship="Self.FK_products_products" FromRole="products1" ToRole="products" />
+          <Property Name="product_cat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -492,7 +502,15 @@
             <End Role="products" EntitySet="products" />
             <End Role="products1" EntitySet="products" />
           </AssociationSet>
+          <EntitySet Name="Tables" EntityType="EcommDBModel.Table" />
         </EntityContainer>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -566,6 +584,7 @@
           <EntitySetMapping Name="products">
             <EntityTypeMapping TypeName="EcommDBModel.product">
               <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="product_cat" ColumnName="product_cat" />
                 <ScalarProperty Name="prod_id" ColumnName="prod_id" />
                 <ScalarProperty Name="prod_name" ColumnName="prod_name" />
                 <ScalarProperty Name="stock" ColumnName="stock" />
@@ -583,6 +602,14 @@
                 <ScalarProperty Name="last_name" ColumnName="last_name" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="EcommDBModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

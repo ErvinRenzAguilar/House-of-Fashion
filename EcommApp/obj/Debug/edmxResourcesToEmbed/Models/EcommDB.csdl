@@ -84,6 +84,7 @@
     <NavigationProperty Name="cart_items" Relationship="Self.FK_cart_items_products" FromRole="products" ToRole="cart_items" />
     <NavigationProperty Name="products1" Relationship="Self.FK_products_products" FromRole="products" ToRole="products1" />
     <NavigationProperty Name="product1" Relationship="Self.FK_products_products" FromRole="products1" ToRole="products" />
+    <Property Name="product_cat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -250,5 +251,13 @@
       <End Role="products" EntitySet="products" />
       <End Role="products1" EntitySet="products" />
     </AssociationSet>
+    <EntitySet Name="Tables" EntityType="EcommDBModel.Table" />
   </EntityContainer>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

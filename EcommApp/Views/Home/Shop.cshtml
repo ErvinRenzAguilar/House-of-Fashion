@@ -1,13 +1,43 @@
-﻿@{
+﻿@using EcommApp.Models;
+@{
+    EcommDBEntities db = new EcommDBEntities();
     ViewBag.Title = "Shop";
-}
+    var queryTops = from p in db.products
+                    where p.product_cat == "top"
+                    select p;
 
+
+    var queryjeans = from p in db.products
+                     where p.product_cat == "jeans"
+                     select p;
+
+    var queryswim = from p in db.products
+                    where p.product_cat == "swim"
+                    select p;
+
+    var querydress = from p in db.products
+                     where p.product_cat == "dress"
+                     select p;
+
+    var queryshorts = from p in db.products
+                      where p.product_cat == "shorts"
+                      select p;
+
+
+    int topnum = queryTops.Count();
+    int jeansnum = queryjeans.Count();
+    int swimnum = queryswim.Count();
+    int dressnum = querydress.Count();
+    int shortnum = queryshorts.Count();
+}
 
 <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height:200px">
         <h1 class="font-weight-semi-bold text-uppercase mb-3">SHOP IN STYLE</h1>
     </div>
 </div>
+<!-- Page Header End -->
+}
 
 <!-- Shop Start -->
 <div class="container-fluid pt-5">
@@ -21,15 +51,15 @@
                     <!--<div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">-->
                     <div class="">
                         <!--    <input type="checkbox" class="custom-control-input" checked id="price-all">
-                <label class="custom-control-label" for="price-all">All Price</label>-->
-                        <span class="badge border font-weight-normal">9 stocks</span>
-                        <a href="/Home/Shirt" target="_self">Shirts</a>
+                        <label class="custom-control-label" for="price-all">All Price</label>-->
+                        <span class="badge border font-weight-normal">@topnum.ToString() stocks</span>
+                        <a href="/Home/Shirt">Shirts</a>
                     </div>
                     <div class="">
 
                         <!--  <input type="checkbox" class="custom-control-input" id="price-1">
-    <label class="custom-control-label" for="price-1">$0 - $100</label>-->
-                        <span class="badge border font-weight-normal">9 stocks</span>
+                        <label class="custom-control-label" for="price-1">$0 - $100</label>-->
+                        <span class="badge border font-weight-normal">@dressnum.ToString() stocks</span>
                         <a href="/Home/Dresses">Dresses</a>
                     </div>
                 </form>
@@ -41,14 +71,14 @@
                 <form>
                     <div class="">
                         <!--<input type="checkbox" class="custom-control-input" checked id="color-all">
-                <label class="custom-control-label" for="price-all">All Color</label>-->
-                        <span class="badge border font-weight-normal">9 stocks</span>
+                        <label class="custom-control-label" for="price-all">All Color</label>-->
+                        <span class="badge border font-weight-normal">@jeansnum.ToString() stocks</span>
                         <a href="/Home/Jeans">Jeans</a>
                     </div>
                     <div class="">
                         <!--<input type="checkbox" class="custom-control-input" checked id="color-all">
-                <label class="custom-control-label" for="price-all">All Color</label>-->
-                        <span class="badge border font-weight-normal">9 stocks</span>
+                        <label class="custom-control-label" for="price-all">All Color</label>-->
+                        <span class="badge border font-weight-normal">@shortnum.ToString() stocks</span>
                         <a href="/Home/Shorts">Shorts</a>
                     </div>
 
@@ -61,15 +91,15 @@
                 <form>
                     <div class="">
                         <!--<input type="checkbox" class="custom-control-input" checked id="color-all">
-            <label class="custom-control-label" for="price-all">All Color</label>-->
-                        <span class="badge border font-weight-normal">9 stocks</span>
+                        <label class="custom-control-label" for="price-all">All Color</label>-->
+                        <span class="badge border font-weight-normal">@swimnum.ToString() stocks</span>
                         <a href="/Home/Swim">Swimwears</a>
                     </div>
                 </form>
             </div>
             <!-- Swimwear End -->
         </div>
-        
+
         <!-- Shop Sidebar End -->
         <!-- Shop Product Start -->
         <div class="col-lg-9 col-md-12">

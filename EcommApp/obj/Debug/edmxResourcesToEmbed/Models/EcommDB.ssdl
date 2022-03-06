@@ -68,6 +68,14 @@
     <Property Name="price" Type="numeric" Precision="18" Scale="2" Nullable="false" />
     <Property Name="prod_image" Type="varchar" MaxLength="50" />
     <Property Name="prod_desc" Type="varchar" MaxLength="50" />
+    <Property Name="product_cat" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cat_name" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="users">
     <Key>
@@ -195,6 +203,7 @@
     <EntitySet Name="events" EntityType="Self.events" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_cart_items_carts" Association="Self.FK_cart_items_carts">
       <End Role="carts" EntitySet="carts" />

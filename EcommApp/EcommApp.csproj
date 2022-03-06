@@ -173,6 +173,9 @@
     <Compile Include="Models\product.cs">
       <DependentUpon>EcommDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Table.cs">
+      <DependentUpon>EcommDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\user.cs">
       <DependentUpon>EcommDB.tt</DependentUpon>
     </Compile>
