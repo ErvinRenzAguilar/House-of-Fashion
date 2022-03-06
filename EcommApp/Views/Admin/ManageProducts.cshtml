@@ -1,8 +1,13 @@
-﻿
+﻿@model IEnumerable<EcommApp.Models.product>
+<!-- added the above -->
+
 @{
     ViewBag.Title = "Manage Products";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+
+
 
 <div class="content">
     <div class="cards">
@@ -11,87 +16,142 @@
         <div class="product-listing">
             <div class="title">
                 <h2>Products</h2>
-                <a href="/Admin/AddProduct" class="btn">Add New Product</a>
+                <!-- Added -->
+                <p>
+                    @Html.ActionLink("Add New Product", "AddProduct")
+                </p>
+                <!-- Commented out the below code, replaced with above actionlink -->
+                @*<a href="/Admin/AddProduct" class="btn">Add New Product</a>*@
             </div>
             <table>
                 <tr>
-                    <th>Product</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                <tr>
-                    <td><img src="~/Media/admin/short1.jfif" alt=""></td>
-                    <td>Men's Shorts (Blue)</td>
-                    <td>$39.99</td>
-                    <td>369</td>
-                    <td><a href="/Admin/EditProduct" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
+                    @* Commented out below *@
+                    @*<th>Product</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>*@
+                    @* Replaced with  *@
+                    <th>
+                        @Html.DisplayName("Product Name")
+                        @*@Html.DisplayNameFor(model => model.prod_name)*@
+                    </th>
+                    <th>
+                        @Html.DisplayName("Stock")
+                        @*@Html.DisplayNameFor(model => model.stock)*@
+                    </th>
+                    <th>
+                        @Html.DisplayName("Price")
+                        @*@Html.DisplayNameFor(model => model.price)*@
+                    </th>
+                    <th>
+                        @Html.DisplayName("Product Image")
+                        @*@Html.DisplayNameFor(model => model.prod_image)*@
+                    </th>
+                    <th>
+                        @Html.DisplayName("Product Description")
+                        @*@Html.DisplayNameFor(model => model.prod_desc)*@
+                    </th>
+                </tr> @* <-- this table header row was missing this closing tr tag*@
 
-                </tr>
-                <tr>
-                    <td><img src="~/Media/admin/short2.jpg" alt=""></td>
-                    <td>Men's Short (Black)</td>
-                    <td>$39.99</td>
-                    <td>278</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
-                <tr>
-                    <td><img src="~/Media/admin/short3.jfif" alt=""></td>
-                    <td>Men's Short (Gray)</td>
-                    <td>$39.99</td>
-                    <td>261</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
-                <tr>
-                    <td><img src="~/Media/admin/short4.jfif" alt=""></td>
-                    <td>Men's Nike short</td>
-                    <td>$29.99</td>
-                    <td>314</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
-                <tr>
-                    <td><img src="~/Media/admin/short5.jfif" alt=""></td>
-                    <td>Men's Summer Short</td>
-                    <td>$29.99</td>
-                    <td>154</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
-                <tr>
-                    <td><img src="~/Media/admin/short6.jpg" alt=""></td>
-                    <td>Women's Short (Black)</td>
-                    <td>$29.99</td>
-                    <td>269</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
-                <tr>
-                    <td><img src="~/Media/admin/short8.jpg" alt=""></td>
-                    <td>Women's Short (Army Green)</td>
-                    <td>$29.99</td>
-                    <td>289</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
-                <tr>
-                    <td><img src="~/Media/admin/short9.jpg" alt=""></td>
-                    <td>Women's Tattered jeans Shorts</td>
-                    <td>$36.99</td>
-                    <td>75</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
-                <tr>
-                    <td><img src="~/Media/admin/short10.jpg" alt=""></td>
-                    <td>Women's Shorts (Light Blue)</td>
-                    <td>$29.99</td>
-                    <td>244</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.prod_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.stock)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.price)
+                        </td>
+                        <td>
+                            <img src="~/Media/@Html.DisplayFor(modelItem => item.prod_image)" height="100" width="100" />
+                            @Html.DisplayFor(modelItem => item.prod_image)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.prod_desc)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditProduct", new { id = item.prod_id }) |
+                            @Html.ActionLink("Delete", "DeleteProduct", new { id = item.prod_id })
+                        </td>
+                    </tr>
+                }
+                @* Commented out hard coded products below*@
+                @*<tr>
+            <td><img src="~/Media/admin/short1.jfif" alt=""></td>
+            <td>Men's Shorts (Blue)</td>
+            <td>$39.99</td>
+            <td>369</td>
+            <td><a href="/Admin/EditProduct" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+
+        </tr>
+        <tr>
+            <td><img src="~/Media/admin/short2.jpg" alt=""></td>
+            <td>Men's Short (Black)</td>
+            <td>$39.99</td>
+            <td>278</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>
+        <tr>
+            <td><img src="~/Media/admin/short3.jfif" alt=""></td>
+            <td>Men's Short (Gray)</td>
+            <td>$39.99</td>
+            <td>261</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>
+        <tr>
+            <td><img src="~/Media/admin/short4.jfif" alt=""></td>
+            <td>Men's Nike short</td>
+            <td>$29.99</td>
+            <td>314</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>
+        <tr>
+            <td><img src="~/Media/admin/short5.jfif" alt=""></td>
+            <td>Men's Summer Short</td>
+            <td>$29.99</td>
+            <td>154</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>
+        <tr>
+            <td><img src="~/Media/admin/short6.jpg" alt=""></td>
+            <td>Women's Short (Black)</td>
+            <td>$29.99</td>
+            <td>269</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>
+        <tr>
+            <td><img src="~/Media/admin/short8.jpg" alt=""></td>
+            <td>Women's Short (Army Green)</td>
+            <td>$29.99</td>
+            <td>289</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>
+        <tr>
+            <td><img src="~/Media/admin/short9.jpg" alt=""></td>
+            <td>Women's Tattered jeans Shorts</td>
+            <td>$36.99</td>
+            <td>75</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>
+        <tr>
+            <td><img src="~/Media/admin/short10.jpg" alt=""></td>
+            <td>Women's Shorts (Light Blue)</td>
+            <td>$29.99</td>
+            <td>244</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>*@
             </table>
         </div>
     </div>
