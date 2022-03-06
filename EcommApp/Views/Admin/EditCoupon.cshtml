@@ -1,4 +1,4 @@
-﻿
+﻿@model EcommApp.Models.coupon
 @{
     ViewBag.Title = "Edit Coupon";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -11,37 +11,78 @@
         <div class="product-listing">
             <div class="title">
                 <h2>Edit Coupon</h2>
-                <a href="#" class="btn">Save Coupon</a>
+                @*<a href="#" class="btn">Save Coupon</a>*@
             </div>
             <div class="formBx">
                 <br />
                 <h2>Edit Coupon</h2>
-                <form>
-                    <div class="inputBx">
-                        <span>Coupon Code</span>
-                        <input type="text" name="" placeholder="VAL14">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.coup_id)
+
+                    <div class="form-group inputBx">
+                        @Html.DisplayName("Coupon ID")
+                        @*@Html.LabelFor(model => model.prod_name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.DisplayFor(model => model.coup_id)
                     </div>
-                    <div class="inputBx">
-                        <span>Coupon Name</span>
-                        <input type="text" name="" placeholder="Valentines' Day Sale for Dresses">
-                    </div>
-                    <div class="dropdown">
-                        <div class="dropdown-select">
-                            <span class="select">Select Category</span>
+
+                    <div class="form-group inputBx">
+                        @Html.DisplayName("Start Date")
+                        @*@Html.LabelFor(model => model.prod_desc, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.DropDownList("event_id", ViewBag.ev_id as SelectList, null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.event_id, "", new { @class = "text-danger" })
                         </div>
-                        <div class="dropdown-list">
-                            <div class="dropdown-list__item">Shirt</div>
-                            <div class="dropdown-list__item">Dress</div>
-                            <div class="dropdown-list__item">Shorts</div>
-                            <div class="dropdown-list__item">Jeans</div>
-                            <div class="dropdown-list__item">Swimwear</div>
+                    </div>
+
+                    <div class="form-group inputBx">
+                        @Html.DisplayName("Discount %")
+                        @*@Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.disc_pct, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.disc_pct, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <div class="inputBx">
-                        <span>Discount Percentage</span>
-                        <input type="text" name="" placeholder="15%">
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save Coupon" class="btn" />
+                        </div>
                     </div>
-                </form>
+                }
+
+                <div>
+                    @Html.ActionLink("Back to Coupons List", "ManageCoupons")
+                </div>
+                @*<form>
+            <div class="inputBx">
+                <span>Coupon Code</span>
+                <input type="text" name="" placeholder="VAL14">
+            </div>
+            <div class="inputBx">
+                <span>Coupon Name</span>
+                <input type="text" name="" placeholder="Valentines' Day Sale for Dresses">
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-select">
+                    <span class="select">Select Category</span>
+                </div>
+                <div class="dropdown-list">
+                    <div class="dropdown-list__item">Shirt</div>
+                    <div class="dropdown-list__item">Dress</div>
+                    <div class="dropdown-list__item">Shorts</div>
+                    <div class="dropdown-list__item">Jeans</div>
+                    <div class="dropdown-list__item">Swimwear</div>
+                </div>
+            </div>
+            <div class="inputBx">
+                <span>Discount Percentage</span>
+                <input type="text" name="" placeholder="15%">
+            </div>
+        </form>*@
             </div>
         </div>
     </div>

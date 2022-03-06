@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<EcommApp.Models.@event>
+
 @{
     ViewBag.Title = "Manage Events";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -11,31 +12,71 @@
         <div class="row justify-content-center">
             <div class="title">
                 <h2>Events</h2>
-                <a href="\Admin\AddEvent" class="btn">Add New Event</a>
+                <!-- Added -->
+                <p>
+                    @Html.ActionLink("Add New Event", "AddEvent")
+                </p>
+                <!-- Commented out the below code, replaced with above actionlink -->
+                @*<a href="\Admin\AddEvent" class="btn">Add New Event</a>*@
             </div>
             <table>
                 <tr>
-                    <th>Event Name</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Discount Price</th>
-                <tr>
-                    <td>Valentines' Day Sale</td>
-                    <td>February 1, 2022</td>
-                    <td>February 15, 2022</td>
-                    <td>15%</td>
-                    <td><a href="\Admin\EditEvent" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
+                    <th>
+                        @Html.DisplayName("Event Name")
+                        @*@Html.DisplayNameFor(model => model.prod_name)*@
+                    </th>
+                    <th>
+                        @Html.DisplayName("Start Date")
+                        @*@Html.DisplayNameFor(model => model.stock)*@
+                    </th>
+                    <th>
+                        @Html.DisplayName("End Date")
+                        @*@Html.DisplayNameFor(model => model.price)*@
+                    </th>
+                @* Remove column for discount price, since there's no discount price column in events table' *@
 
-                </tr>
-                <tr>
-                    <td>Christmas Sale</td>
-                    <td>December 1, 2022</td>
-                    <td>December 26, 2022</td>
-                    <td>20%</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
+                    @*<th>Event Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Discount Price</th>*@
+                </tr> @* <-- this table header row was missing this closing tr tag*@
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ev_name)
+                        </td>
+                        <td>
+                            @item.start_date.ToShortDateString()
+                            @*@Html.DisplayFor(modelItem => item.start_date)*@
+                        </td>
+                        <td>
+                            @item.end_date.ToShortDateString()
+                            @*@Html.DisplayFor(modelItem => item.end_date)*@
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditEvent", new { id = item.ev_id }) |
+                            @Html.ActionLink("Delete", "DeleteEvent", new { id = item.ev_id })
+                        </td>
+                    </tr>
+                }
+                @*<tr>
+            <td>Valentines' Day Sale</td>
+            <td>February 1, 2022</td>
+            <td>February 15, 2022</td>
+            <td>15%</td>
+            <td><a href="\Admin\EditEvent" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+
+        </tr>
+        <tr>
+            <td>Christmas Sale</td>
+            <td>December 1, 2022</td>
+            <td>December 26, 2022</td>
+            <td>20%</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>*@
             </table>
         </div>
     </div>

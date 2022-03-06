@@ -1,0 +1,55 @@
+﻿@model EcommApp.Models.@event
+
+@{
+    ViewBag.Title = "Delete Event";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete Event</h2>
+
+
+
+<div class="content">
+    <div class="cards">
+    </div>
+    <div class="content-2">
+        <div class="product-listing">
+            <div class="title">
+                <h2>Delete Event</h2>
+            </div>
+            <div class="formBx">
+                <br />
+                <h2>Delete Event</h2>
+                <h3>Are you sure you want to delete this?</h3>
+                <div>
+                    <h4>Event</h4>
+                    <hr />
+                    <table>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                        <tr>
+                            <td>@ViewBag.evt.ev_name</td>
+                            <td>@ViewBag.evt.start_date.ToShortDateString()</td>
+                            <td>@ViewBag.evt.end_date.ToShortDateString()</td>
+                        </tr>
+                    </table>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn" /> |
+                            @Html.ActionLink("Back to List", "ManageEvents")
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

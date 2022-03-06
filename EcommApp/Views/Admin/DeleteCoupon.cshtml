@@ -1,0 +1,51 @@
+﻿@model EcommApp.Models.coupon
+
+@{
+    ViewBag.Title = "DeleteCoupon";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete Coupon</h2>
+
+<div class="content">
+    <div class="cards">
+    </div>
+    <div class="content-2">
+        <div class="product-listing">
+            <div class="title">
+                <h2>Delete Coupon</h2>
+            </div>
+            <div class="formBx">
+                <br />
+                <h2>Delete Event</h2>
+                <h3>Are you sure you want to delete this?</h3>
+                <div>
+                    <h4>Coupon</h4>
+                    <hr />
+                    <table>
+                        <tr>
+                            <th>Coupon Id</th>
+                            <th>Event</th>
+                            <th>Discount Percentage</th>
+                        <tr>
+                            <td>@ViewBag.cpn.coup_id</td>
+                            <td>@ViewBag.cpn.event_id</td>
+                            <td>@ViewBag.cpn.disc_pct</td>
+                        </tr>
+                    </table>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn" /> |
+                            @Html.ActionLink("Back to List", "ManageCoupons")
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

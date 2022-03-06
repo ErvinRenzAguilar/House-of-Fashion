@@ -23,14 +23,13 @@ namespace EcommApp.Controllers
             return View();
         }
 
+        // Products CRUD
         public ActionResult ManageProducts()
         {
-            //-- Commented out since I dont know the admin login details
             if (Session["admin_id"] != null)
             {
                 var prod = db.products; //.Include(p => p.CategoryTest)
                 return View(prod.ToList());
-                //return View();
             }
             else
             {
@@ -167,12 +166,18 @@ namespace EcommApp.Controllers
             base.Dispose(disposing);
         }
 
+        // End Products CRUD
+
+        //----------------------------------------------------------------------
+
+        // Events CRUD
 
         public ActionResult ManageEvents()
         {
             if (Session["admin_id"] != null)
             {
-                return View();
+                var events = db.events; //.Include(p => p.CategoryTest)
+                return View(events.ToList());
             }
             else
             {
@@ -180,6 +185,7 @@ namespace EcommApp.Controllers
             }
         }
 
+        // GET
         public ActionResult AddEvent()
         {
             if (Session["admin_id"] != null)
@@ -191,12 +197,66 @@ namespace EcommApp.Controllers
                 return RedirectToAction("AdminLogin", "Account");
             }
         }
-
-        public ActionResult EditEvent()
+        // POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddEvent([Bind(Include = "ev_id,ev_name,start_date,end_date")] @event evt)
         {
             if (Session["admin_id"] != null)
             {
-                return View();
+                if (ModelState.IsValid)
+                {
+                    db.events.Add(evt);
+                    db.SaveChanges();
+                    return RedirectToAction("ManageEvents");
+                }
+
+                return View(evt);
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
+            
+        }
+
+        // GET
+        public ActionResult EditEvent(int? id)
+        {
+            if (Session["admin_id"] != null)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                @event evt = db.events.Find(id);
+                if (evt == null)
+                {
+                    return HttpNotFound();
+                }
+
+                ViewBag.evt = evt;
+                return View(evt);
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
+        }
+        // POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditEvent([Bind(Include = "ev_id,ev_name,start_date,end_date")] @event evt)
+        {
+            if (Session["admin_id"] != null)
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(evt).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("ManageEvents");
+                }
+                return View(evt);
             }
             else
             {
@@ -204,11 +264,40 @@ namespace EcommApp.Controllers
             }
         }
 
-        public ActionResult DeleteEvent()
+        //GET
+        public ActionResult DeleteEvent(int? id)
         {
             if (Session["admin_id"] != null)
             {
-                return View();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                @event evt = db.events.Find(id);
+                if (evt == null)
+                {
+                    return HttpNotFound();
+                }
+
+                ViewBag.evt = evt;
+                return View(evt);
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
+        }
+        // POST
+        [HttpPost]//, ActionName("DeleteEvent")
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteEvent(int id)
+        {
+            if (Session["admin_id"] != null)
+            {
+                @event evt = db.events.Find(id);
+                db.events.Remove(evt);
+                db.SaveChanges();
+                return RedirectToAction("ManageEvents");
             }
             else
             {
@@ -216,11 +305,17 @@ namespace EcommApp.Controllers
             }
         }
 
+        //End Events CRUD
+
+        //-----------------------------------------------------------------------------------------
+
+        // Coupons CRUD
         public ActionResult ManageCoupons()
         {
             if (Session["admin_id"] != null)
             {
-                return View();
+                var coupons = db.coupons.Include(p => p.@event);
+                return View(coupons.ToList());
             }
             else
             {
@@ -228,10 +323,12 @@ namespace EcommApp.Controllers
             }
         }
 
+        // GET
         public ActionResult AddCoupon()
         {
             if (Session["admin_id"] != null)
             {
+                ViewBag.ev_id = new SelectList(db.events, "ev_id", "ev_name");
                 return View();
             }
             else
@@ -239,12 +336,22 @@ namespace EcommApp.Controllers
                 return RedirectToAction("AdminLogin", "Account");
             }
         }
-
-        public ActionResult EditCoupon()
+        // POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddCoupon([Bind(Include = "coup_id,event_id,disc_pct")] coupon cpn)
         {
             if (Session["admin_id"] != null)
             {
-                return View();
+                if (ModelState.IsValid)
+                {
+                    db.coupons.Add(cpn);
+                    db.SaveChanges();
+                    return RedirectToAction("ManageCoupons");
+                }
+
+                ViewBag.ev_id = new SelectList(db.events, "ev_id", "ev_name", cpn.event_id);
+                return View(cpn);
             }
             else
             {
@@ -252,11 +359,35 @@ namespace EcommApp.Controllers
             }
         }
 
-        public ActionResult DeleteCoupon()
+        public ActionResult EditCoupon(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            coupon cpn = db.coupons.Find(id);
+            if (cpn == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ev_id = new SelectList(db.events, "ev_id", "ev_name", cpn.event_id);
+            return View(cpn);
+        }
+        // POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditCoupon([Bind(Include = "coup_id,event_id,disc_pct")] coupon cpn)
         {
             if (Session["admin_id"] != null)
             {
-                return View();
+                if (ModelState.IsValid)
+                {
+                    db.Entry(cpn).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("ManageCoupons");
+                }
+                ViewBag.ev_id = new SelectList(db.events, "ev_id", "ev_name", cpn.event_id);
+                return View(cpn);
             }
             else
             {
@@ -264,5 +395,47 @@ namespace EcommApp.Controllers
             }
         }
 
+        // GET
+        public ActionResult DeleteCoupon(int? id)
+        {
+            if (Session["admin_id"] != null)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                coupon cpn = db.coupons.Find(id);
+                if (cpn == null)
+                {
+                    return HttpNotFound();
+                }
+
+                ViewBag.cpn = cpn;
+                return View(cpn);
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
+        }
+        // POST
+        [HttpPost]//, ActionName("DeleteEvent")
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteCoupon(int id)
+        {
+            if (Session["admin_id"] != null)
+            {
+                coupon cpn = db.coupons.Find(id);
+                db.coupons.Remove(cpn);
+                db.SaveChanges();
+                return RedirectToAction("ManageCoupons");
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Account");
+            }
+        }
+
+        //End Coupons CRUD
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<EcommApp.Models.coupon>
+@{
     ViewBag.Title = "Manage Coupons";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
@@ -10,37 +11,69 @@
         <div class="row justify-content-center">
             <div class="title">
                 <h2>Coupons</h2>
-                <a href="\Admin\AddCoupon" class="btn">Add New Coupon</a>
+                <!-- Added -->
+                <p>
+                    @Html.ActionLink("Add New Coupon", "AddCoupon")
+                </p>
+                <!-- Commented out the below code, replaced with above actionlink -->
+                @*<a href="\Admin\AddCoupon" class="btn">Add New Coupon</a>*@
             </div>
             <table>
                 <tr>
-                    <th>Coupon Code</th>
-                    <th>Event Name</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Discount Price</th>
-                    <th>Category</th>
+                    <th>
+                        @Html.DisplayName("Coupon Id")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Event")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Discount %")
+                    </th>
+                    @*<th>Coupon Code</th>
+            <th>Event Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Discount Price</th>
+            <th>Category</th>*@
                 </tr>
-                <tr>
-                    <td>VAL14</td>
-                    <td>Valentines' Day Sale</td>
-                    <td>February 1, 2022</td>
-                    <td>February 15, 2022</td>
-                    <td>15%</td>
-                    <td>Dresses</td>
-                    <td><a href="\Admin\EditCoupon" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>XMAS25</td>
-                    <td>Christmas Sale</td>
-                    <td>December 1, 2022</td>
-                    <td>December 26, 2022</td>
-                    <td>20%</td>
-                    <td>Tops</td>
-                    <td><a href="#" class="btn">Edit</a></td>
-                    <td><a href="#" class="btn">Delete</a></td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.coup_id)
+                        </td>
+                        <td>                            
+                            @Html.DisplayFor(modelItem => item.@event.ev_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.disc_pct)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditCoupon", new { id = item.coup_id }) |
+                            @Html.ActionLink("Delete", "DeleteCoupon", new { id = item.coup_id })
+                        </td>
+                    </tr>
+                }
+                @*<tr>
+            <td>VAL14</td>
+            <td>Valentines' Day Sale</td>
+            <td>February 1, 2022</td>
+            <td>February 15, 2022</td>
+            <td>15%</td>
+            <td>Dresses</td>
+            <td><a href="\Admin\EditCoupon" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>
+        <tr>
+            <td>XMAS25</td>
+            <td>Christmas Sale</td>
+            <td>December 1, 2022</td>
+            <td>December 26, 2022</td>
+            <td>20%</td>
+            <td>Tops</td>
+            <td><a href="#" class="btn">Edit</a></td>
+            <td><a href="#" class="btn">Delete</a></td>
+        </tr>*@
             </table>
         </div>
     </div>
