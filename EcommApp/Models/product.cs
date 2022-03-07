@@ -11,7 +11,8 @@ namespace EcommApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,6 +26,7 @@ namespace EcommApp.Models
         public int stock { get; set; }
         public decimal price { get; set; }
         public string prod_image { get; set; }
+
         public string prod_desc { get; set; }
         public string product_cat { get; set; }
     
