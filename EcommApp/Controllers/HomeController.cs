@@ -20,6 +20,14 @@ namespace EcommApp.Controllers
 
         public ActionResult Shop()
         {
+            var query = from p in db.products
+                        orderby p.prod_name
+                        select p;
+
+            IEnumerable<product> products = query.ToList();
+
+            ViewData["prodlist"] = products;
+
             if (Session["user_id"] != null)
             {
                 return View();
@@ -57,7 +65,7 @@ namespace EcommApp.Controllers
         {
 
             var query = from p in db.products
-                        where p.product_cat == "shorts"
+                        where p.product_cat == "dress"
                         select p;
 
             IEnumerable<product> products = query.ToList();
@@ -75,17 +83,7 @@ namespace EcommApp.Controllers
 
 
         }
-        public ActionResult Dresses2()
-        {
-            if (Session["user_id"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login", "Account");
-            }
-        }
+      
         public ActionResult Jeans()
         {
 
