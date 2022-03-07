@@ -196,6 +196,7 @@
     <Content Include="lib\easing\easing.js" />
     <Content Include="lib\easing\easing.min.js" />
     <Content Include="lib\owlcarousel\owl.carousel.js" />
+    <Content Include="lib\owlcarousel\owl.carousel.min.css" />
     <Content Include="lib\owlcarousel\owl.carousel.min.js" />
     <Content Include="Media\admin\j.jpg" />
     <Content Include="Media\admin\short1.jfif" />

@@ -13,9 +13,14 @@ namespace EcommApp.Controllers
         public ActionResult Details(int? id)
         {
             product p = db.products.Find(id);
+
+            ViewData["details"] = p;
             if (Session["user_id"] != null)
             {
-                return View(p);
+                if (ViewData["details"] != null)
+                    return View();
+                else
+                    return RedirectToAction("Shop", "Home");
             }
             else
             {

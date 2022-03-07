@@ -26,7 +26,6 @@ namespace EcommApp.Models
         public int stock { get; set; }
         public decimal price { get; set; }
         public string prod_image { get; set; }
-
         public string prod_desc { get; set; }
         public string product_cat { get; set; }
     
