@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -53,7 +54,7 @@ namespace EcommApp.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddProduct([Bind(Include = "prod_id,prod_name,prod_desc,price,stock,prod_image,product_cat")] product prod)
+        public ActionResult AddProduct([Bind(Include = "prod_id,prod_name,prod_desc,price,stock,prod_image,product_cat, imgFile")] product prod)
         {
             if (Session["admin_id"] != null)
             {
@@ -61,6 +62,17 @@ namespace EcommApp.Controllers
                 {
                     try
                     {
+                        if (prod.imgFile != null)
+                        {
+                            //Added for product image
+                            string fileName = Path.GetFileNameWithoutExtension(prod.imgFile.FileName);
+                            string extension = Path.GetExtension(prod.imgFile.FileName);
+                            fileName = fileName + extension;
+                            prod.prod_image = fileName;
+                            fileName = Path.Combine(Server.MapPath("~/Media/"), fileName);
+                            prod.imgFile.SaveAs(fileName);
+                        }
+
                         db.products.Add(prod);
                         db.SaveChanges();
                     }
@@ -118,12 +130,23 @@ namespace EcommApp.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProduct([Bind(Include = "prod_id,prod_name,prod_desc,price,stock,prod_image,product_cat")] product prod)
+        public ActionResult EditProduct([Bind(Include = "prod_id,prod_name,prod_desc,price,stock,prod_image,product_cat, imgFile")] product prod)
         {
             if (Session["admin_id"] != null)
             {
                 if (ModelState.IsValid)
                 {
+                    if(prod.imgFile != null)
+                    {
+                        //Added for product image
+                        string fileName = Path.GetFileNameWithoutExtension(prod.imgFile.FileName);
+                        string extension = Path.GetExtension(prod.imgFile.FileName);
+                        fileName = fileName + extension;
+                        prod.prod_image = fileName;
+                        fileName = Path.Combine(Server.MapPath("~/Media/"), fileName);
+                        prod.imgFile.SaveAs(fileName);
+                    }
+
                     db.Entry(prod).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("ManageProducts");

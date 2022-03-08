@@ -13,6 +13,7 @@ namespace EcommApp.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
 
     public partial class product
     {
@@ -31,7 +32,11 @@ namespace EcommApp.Models
         public string prod_image { get; set; }
         public string prod_desc { get; set; }
         public string product_cat { get; set; }
-    
+
+        //for product image
+        public HttpPostedFileBase imgFile { get; set; }
+        //
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cart_items> cart_items { get; set; }
         public virtual product products1 { get; set; }
