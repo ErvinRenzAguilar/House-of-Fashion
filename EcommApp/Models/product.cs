@@ -12,6 +12,7 @@ namespace EcommApp.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class product
     {
@@ -20,7 +21,9 @@ namespace EcommApp.Models
         {
             this.cart_items = new HashSet<cart_items>();
         }
-    
+
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int prod_id { get; set; }
         public string prod_name { get; set; }
         public int stock { get; set; }

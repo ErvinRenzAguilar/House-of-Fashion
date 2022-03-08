@@ -53,14 +53,34 @@ namespace EcommApp.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddProduct([Bind(Include = "prod_id,prod_name,prod_desc,price,stock,prod_image")] product prod)
+        public ActionResult AddProduct([Bind(Include = "prod_id,prod_name,prod_desc,price,stock,prod_image,product_cat")] product prod)
         {
             if (Session["admin_id"] != null)
             {
                 if (ModelState.IsValid)
                 {
-                    db.products.Add(prod);
-                    db.SaveChanges();
+                    try
+                    {
+                        db.products.Add(prod);
+                        db.SaveChanges();
+                    }
+                    catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                    {
+                        Exception raise = dbEx;
+                        foreach (var validationErrors in dbEx.EntityValidationErrors)
+                        {
+                            foreach (var validationError in validationErrors.ValidationErrors)
+                            {
+                                string message = string.Format("{0}:{1}",
+                                    validationErrors.Entry.Entity.ToString(),
+                                    validationError.ErrorMessage);
+                                // raise a new exception nesting
+                                // the current instance as InnerException
+                                raise = new InvalidOperationException(message, raise);
+                            }
+                        }
+                        throw raise;
+                    }
                     return RedirectToAction("ManageProducts");
                 }
                 return View(prod);
@@ -98,7 +118,7 @@ namespace EcommApp.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProduct([Bind(Include = "prod_id,prod_name,prod_desc,price,stock,prod_image")] product prod)
+        public ActionResult EditProduct([Bind(Include = "prod_id,prod_name,prod_desc,price,stock,prod_image,product_cat")] product prod)
         {
             if (Session["admin_id"] != null)
             {
