@@ -42,4 +42,13 @@ namespace EcommApp.Models
         public virtual product products1 { get; set; }
         public virtual product product1 { get; set; }
     }
+
+    public enum Category
+    {
+        Shirt,
+        Dress,
+        Shorts,
+        Jeans,
+        Swimwear
+    }
 }
