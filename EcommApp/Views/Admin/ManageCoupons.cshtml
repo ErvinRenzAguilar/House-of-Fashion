@@ -23,35 +23,47 @@
                         @Html.DisplayName("Coupon Id")
                     </th>
                     <th>
+                        @Html.DisplayName("Coupon Code")
+                    </th>
+                    <th>
                         @Html.DisplayName("Event")
                     </th>
                     <th>
                         @Html.DisplayName("Discount %")
                     </th>
+                    <th>
+                        @Html.DisplayName("Category")
+                    </th>
                     @*<th>Coupon Code</th>
-            <th>Event Name</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Discount Price</th>
-            <th>Category</th>*@
+        <th>Event Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Discount Price</th>
+        <th>Category</th>*@
                 </tr>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.coup_id)
-                        </td>
-                        <td>                            
-                            @Html.DisplayFor(modelItem => item.@event.ev_name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.disc_pct)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "EditCoupon", new { id = item.coup_id }) |
-                            @Html.ActionLink("Delete", "DeleteCoupon", new { id = item.coup_id })
-                        </td>
-                    </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.coup_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.coup_code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.@event.ev_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.disc_pct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.category)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditCoupon", new { id = item.coup_id }) |
+                    @Html.ActionLink("Delete", "DeleteCoupon", new { id = item.coup_id })
+                </td>
+            </tr>
                 }
                 @*<tr>
             <td>VAL14</td>

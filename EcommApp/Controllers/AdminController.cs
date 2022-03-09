@@ -382,7 +382,7 @@ namespace EcommApp.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddCoupon([Bind(Include = "coup_id,event_id,disc_pct")] coupon cpn)
+        public ActionResult AddCoupon([Bind(Include = "coup_id,event_id,disc_pct,coup_code,category")] coupon cpn)
         {
             if (Session["admin_id"] != null)
             {
@@ -419,7 +419,7 @@ namespace EcommApp.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditCoupon([Bind(Include = "coup_id,event_id,disc_pct")] coupon cpn)
+        public ActionResult EditCoupon([Bind(Include = "coup_id,event_id,disc_pct,coup_code,category")] coupon cpn)
         {
             if (Session["admin_id"] != null)
             {

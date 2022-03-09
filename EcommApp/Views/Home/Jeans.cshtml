@@ -4,24 +4,24 @@
     EcommDBEntities db = new EcommDBEntities();
     ViewBag.Title = "Jeans";
     var queryTops = from p in db.products
-                    where p.product_cat == "top"
+                    where p.product_cat == "Shirt"
                     select p;
 
 
     var queryjeans = from p in db.products
-                     where p.product_cat == "jeans"
+                     where p.product_cat == "Jeans"
                      select p;
 
     var queryswim = from p in db.products
-                    where p.product_cat == "swim"
+                    where p.product_cat == "Swimwear"
                     select p;
 
     var querydress = from p in db.products
-                     where p.product_cat == "dress"
+                     where p.product_cat == "Dress"
                      select p;
 
     var queryshorts = from p in db.products
-                      where p.product_cat == "shorts"
+                      where p.product_cat == "Shorts"
                       select p;
 
 

@@ -42,7 +42,7 @@ namespace EcommApp.Controllers
         public ActionResult Shirt()
         {
             var query = from p in db.products
-                        where p.product_cat == "top"
+                        where p.product_cat == "Shirt"
                         select p;
 
             IEnumerable<product> products = query.ToList();
@@ -66,7 +66,7 @@ namespace EcommApp.Controllers
         {
 
             var query = from p in db.products
-                        where p.product_cat == "dress"
+                        where p.product_cat == "Dress"
                         select p;
 
             IEnumerable<product> products = query.ToList();
@@ -89,7 +89,7 @@ namespace EcommApp.Controllers
         {
 
             var query = from p in db.products
-                        where p.product_cat == "jeans"
+                        where p.product_cat == "Jeans"
                         select p;
 
             IEnumerable<product> products = query.ToList();
@@ -111,7 +111,7 @@ namespace EcommApp.Controllers
         public ActionResult Shorts()
         {
             var query = from p in db.products
-                        where p.product_cat == "shorts"
+                        where p.product_cat == "Shorts"
                         select p;
 
             IEnumerable<product> products = query.ToList();
@@ -131,7 +131,7 @@ namespace EcommApp.Controllers
         public ActionResult Swim()
         {
             var query = from p in db.products
-                        where p.product_cat == "swim"
+                        where p.product_cat == "Swimwear"
                         select p;
 
             IEnumerable<product> products = query.ToList();

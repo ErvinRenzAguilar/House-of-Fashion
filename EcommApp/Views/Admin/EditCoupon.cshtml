@@ -1,4 +1,5 @@
-﻿@model EcommApp.Models.coupon
+﻿@using EcommApp.Models
+@model coupon
 @{
     ViewBag.Title = "Edit Coupon";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -24,20 +25,32 @@
                     @Html.HiddenFor(model => model.coup_id)
 
                     <div class="form-group inputBx">
-                        @Html.DisplayName("Coupon ID")
+                        @Html.DisplayName("Coupon ID:")
                         @*@Html.LabelFor(model => model.prod_name, htmlAttributes: new { @class = "control-label col-md-2" })*@
                         @Html.DisplayFor(model => model.coup_id)
                     </div>
+                    <div class="form-group inputBx">
+                        @Html.DisplayName("Coupon Code")
+                        @Html.EditorFor(model => model.coup_code, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.coup_code, "", new { @class = "text-danger" })
+                    </div>
 
                     <div class="form-group inputBx">
-                        @Html.DisplayName("Start Date")
+                        @Html.DisplayName("Event Name")
                         @*@Html.LabelFor(model => model.prod_desc, htmlAttributes: new { @class = "control-label col-md-2" })*@
                         <div class="col-md-10">
                             @Html.DropDownList("event_id", ViewBag.ev_id as SelectList, null, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.event_id, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                    <div class="form-group inputBx">
+                        @Html.DisplayName("Category")
+                        @*@Html.LabelFor(model => model.prod_image, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.DropDownListFor(model => model.category, new SelectList(Enum.GetValues(typeof(Category))), "Select Category")
+                        <div class="col-md-10">
 
+                        </div>
+                    </div>
                     <div class="form-group inputBx">
                         @Html.DisplayName("Discount %")
                         @*@Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })*@

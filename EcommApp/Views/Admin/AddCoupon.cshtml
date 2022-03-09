@@ -1,4 +1,6 @@
-﻿@model EcommApp.Models.coupon
+﻿@using EcommApp.Models
+
+@model coupon
 @{
     ViewBag.Title = "Add Coupon";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -11,7 +13,6 @@
         <div class="product-listing">
             <div class="title">
                 <h2>Add Coupon</h2>
-                <a href="#" class="btn">Save Coupon</a>
             </div>
             <div class="formBx">
                 <br />
@@ -23,14 +24,14 @@
 
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    @* --Removed field for coupon id because it's auto-generated now
-                        <div class="form-group inputBx">
-                        @Html.DisplayName("Coupon Id")
+
+                    <div class="form-group inputBx">
+                        @Html.DisplayName("Coupon Code")
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.coup_id, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.coup_id, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.coup_code, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.coup_code, "", new { @class = "text-danger" })
                         </div>
-                    </div>*@
+                    </div>
                     <div class="form-group inputBx">
                         @Html.DisplayName("Event")
                         @*@Html.LabelFor(model => model.event_id, "ev_id", htmlAttributes: new { @class = "control-label col-md-2" })*@
@@ -40,14 +41,22 @@
                             @Html.ValidationMessageFor(model => model.event_id, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                    <div class="form-group inputBx">
+                        @Html.DisplayName("Category")
+                        @*@Html.LabelFor(model => model.prod_image, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        @Html.DropDownListFor(model => model.category, new SelectList(Enum.GetValues(typeof(Category))), "Select Category")
+                        <div class="col-md-10">
+
+                        </div>
+                    </div>
 
                     @*<div class="form-group inputBx">
-                        @Html.DisplayName("Event")
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.event_id, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.event_id, "", new { @class = "text-danger" })
-                        </div>
-                    </div>*@
+                            @Html.DisplayName("Event")
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.event_id, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.event_id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
 
                     <div class="form-group inputBx">
                         @Html.DisplayName("Discount %")
@@ -69,31 +78,31 @@
                 </div>
 
                 @*<form>
-            <div class="inputBx">
-                <span>Coupon Code</span>
-                <input type="text" name="">
-            </div>
-            <div class="inputBx">
-                <span>Coupon Name</span>
-                <input type="text" name="">
-            </div>
-            <div class="dropdown">
-                <div class="dropdown-select">
-                    <span class="select">Select Category</span>
-                </div>
-                <div class="dropdown-list">
-                    <div class="dropdown-list__item">Shirt</div>
-                    <div class="dropdown-list__item">Dress</div>
-                    <div class="dropdown-list__item">Shorts</div>
-                    <div class="dropdown-list__item">Jeans</div>
-                    <div class="dropdown-list__item">Swimwear</div>
-                </div>
-            </div>
-            <div class="inputBx">
-                <span>Discount Percentage</span>
-                <input type="text" name="">
-            </div>
-        </form>*@
+                        <div class="inputBx">
+                            <span>Coupon Code</span>
+                            <input type="text" name="">
+                        </div>
+                        <div class="inputBx">
+                            <span>Coupon Name</span>
+                            <input type="text" name="">
+                        </div>
+                        <div class="dropdown">
+                            <div class="dropdown-select">
+                                <span class="select">Select Category</span>
+                            </div>
+                            <div class="dropdown-list">
+                                <div class="dropdown-list__item">Shirt</div>
+                                <div class="dropdown-list__item">Dress</div>
+                                <div class="dropdown-list__item">Shorts</div>
+                                <div class="dropdown-list__item">Jeans</div>
+                                <div class="dropdown-list__item">Swimwear</div>
+                            </div>
+                        </div>
+                        <div class="inputBx">
+                            <span>Discount Percentage</span>
+                            <input type="text" name="">
+                        </div>
+                    </form>*@
             </div>
         </div>
     </div>

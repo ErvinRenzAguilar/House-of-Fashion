@@ -26,8 +26,8 @@
       <PropertyRef Name="cart_id" />
     </Key>
     <Property Name="cart_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="coup_id" Type="int" />
     <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="coup_id" Type="int" />
   </EntityType>
   <EntityType Name="coupons">
     <Key>
@@ -36,6 +36,8 @@
     <Property Name="coup_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="event_id" Type="int" />
     <Property Name="disc_pct" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="coup_code" Type="varchar" MaxLength="50" />
+    <Property Name="category" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="events">
     <Key>
@@ -88,7 +90,7 @@
     <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK_carts_coupons">
+  <Association Name="FK_carts_to_coupons">
     <End Role="coupons" Type="Self.coupons" Multiplicity="0..1" />
     <End Role="carts" Type="Self.carts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -100,7 +102,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_carts_users">
+  <Association Name="FK_carts_to_users">
     <End Role="users" Type="Self.users" Multiplicity="1" />
     <End Role="carts" Type="Self.carts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -121,18 +123,6 @@
       </Principal>
       <Dependent Role="coupons">
         <PropertyRef Name="event_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Order_carts">
-    <End Role="carts" Type="Self.carts" Multiplicity="1" />
-    <End Role="order" Type="Self.order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="carts">
-        <PropertyRef Name="cart_id" />
-      </Principal>
-      <Dependent Role="order">
-        <PropertyRef Name="cart_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -182,21 +172,17 @@
     <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_carts_coupons" Association="Self.FK_carts_coupons">
+    <AssociationSet Name="FK_carts_to_coupons" Association="Self.FK_carts_to_coupons">
       <End Role="coupons" EntitySet="coupons" />
       <End Role="carts" EntitySet="carts" />
     </AssociationSet>
-    <AssociationSet Name="FK_carts_users" Association="Self.FK_carts_users">
+    <AssociationSet Name="FK_carts_to_users" Association="Self.FK_carts_to_users">
       <End Role="users" EntitySet="users" />
       <End Role="carts" EntitySet="carts" />
     </AssociationSet>
     <AssociationSet Name="FK_coupons_events" Association="Self.FK_coupons_events">
       <End Role="events" EntitySet="events" />
       <End Role="coupons" EntitySet="coupons" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_carts" Association="Self.FK_Order_carts">
-      <End Role="carts" EntitySet="carts" />
-      <End Role="order" EntitySet="order" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Order" Association="Self.FK_Order_Order">
       <End Role="order" EntitySet="order" />

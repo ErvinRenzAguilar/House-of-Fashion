@@ -36,6 +36,8 @@
     <EntitySetMapping Name="coupons">
       <EntityTypeMapping TypeName="EcommDBModel.coupon">
         <MappingFragment StoreEntitySet="coupons">
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="coup_code" ColumnName="coup_code" />
           <ScalarProperty Name="coup_id" ColumnName="coup_id" />
           <ScalarProperty Name="event_id" ColumnName="event_id" />
           <ScalarProperty Name="disc_pct" ColumnName="disc_pct" />
