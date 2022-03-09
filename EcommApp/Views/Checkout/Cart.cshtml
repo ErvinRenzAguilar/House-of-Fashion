@@ -2,6 +2,14 @@
 @{
     ViewBag.Title = "Cart";
 }
+@{ 
+    decimal total = 0;
+    foreach (var item in ViewData["items"] as List<cart_items>)
+    {
+        decimal subtotal = item.price * item.quantity;
+        total += subtotal;
+    }
+}
 
 
 <!-- Page Header Start -->
@@ -11,8 +19,6 @@
     </div>
 </div>
 <!-- Page Header End -->
-
-
 <!-- Cart Start -->
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
@@ -23,7 +29,7 @@
                         <th>Products</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Total</th>
+                        <th>Subtotal</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
@@ -40,7 +46,7 @@
                                             <i class="fa fa-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="">
+                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="@item.quantity">
                                     <div class="input-group-btn">
                                         <button class="btn btn-sm btn-primary btn-plus">
                                             <i class="fa fa-plus"></i>
@@ -48,12 +54,10 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">notfinish</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
+                            <td class="align-middle">@(item.price * item.quantity)</td>
+                            <td class="align-middle"><a href="/Checkout/Delete?id=@item.prod_id"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></a></td>
                         </tr>
                     }
-
-
                 </tbody>
             </table>
         </div>
@@ -70,20 +74,21 @@
                 <div class="card-header bg-secondary border-0">
                     <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
                 </div>
+               
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-3 pt-1">
-                        <h6 class="font-weight-medium">Subtotal</h6>
-                        <h6 class="font-weight-medium">$150</h6>
+                        <h6 class="font-weight-medium">Total</h6>
+                        <h6 class="font-weight-medium">₱@total</h6>
                     </div>
                     <div class="d-flex justify-content-between">
                         <h6 class="font-weight-medium">Shipping</h6>
-                        <h6 class="font-weight-medium">$10</h6>
+                        <h6 class="font-weight-medium">₱50</h6>
                     </div>
                 </div>
                 <div class="card-footer border-secondary bg-transparent">
                     <div class="d-flex justify-content-between mt-2">
-                        <h5 class="font-weight-bold">Total</h5>
-                        <h5 class="font-weight-bold">$160</h5>
+                        <h5 class="font-weight-bold">Grand Total</h5>
+                        <h5 class="font-weight-bold">₱@(total + 50)</h5>
                     </div>
                     <a href="/Checkout/Payment"><button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button></a>
                 </div>

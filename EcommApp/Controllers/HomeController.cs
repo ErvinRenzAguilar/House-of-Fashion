@@ -1,6 +1,7 @@
 ﻿using EcommApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -191,19 +192,44 @@ namespace EcommApp.Controllers
             int prod_id = Convert.ToInt16(prodId);
             int quantity = Convert.ToInt16(qty);
 
-                cart_items items = new cart_items();
 
+            cart_items items = new cart_items();
             items.cart_id = cart_id;
             items.prod_id = prod_id;
             items.item_name = prodname;
             items.price = Convert.ToDecimal(price);
             items.quantity = qty;
-
-            db.cart_items.Add(items);
+            int check = IsExistingCheck(prod_id);
+            if (check == -1)
+            {
+                db.cart_items.Add(items);
+            }
+            else
+            {
+                items.quantity += 1;
+                db.Entry(items).State = EntityState.Modified;
+            }
             db.SaveChanges();
-            
             return RedirectToAction("Cart", "Checkout");
 
+        }
+        private int IsExistingCheck(int? id)
+        {
+            int user_id = Convert.ToInt32(Session["user_id"]);
+            int cart_id = Convert.ToInt32((from x in db.carts
+                                           where (x.user_id == user_id)
+                                           select x.cart_id).Single());
+            var query = from p in db.cart_items
+                        where p.cart_id == cart_id
+                        select p;
+
+            List<cart_items> items = query.ToList();
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].prod_id == id) 
+                    return i;
+            }
+            return -1;
         }
     }
 }

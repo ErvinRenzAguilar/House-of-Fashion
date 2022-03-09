@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using EcommApp.Models;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    
+
     @Scripts.Render("~/bundles/modernizr")
 
     <!-- Favicon -->
@@ -33,9 +35,9 @@
         </div>
         <div class="col-lg-3 col-6 text-right">
             @*<a href="/Checkout/Cart" class="btn border">
-                <i class="fas fa-shopping-cart text-primary"></i>
-                <span class="badge">0</span>
-            </a>*@
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <span class="badge">0</span>
+                </a>*@
         </div>
     </div>
     <!-- Topbar End -->
@@ -44,21 +46,21 @@
         <div class="row border-top px-xl-5">
             <!-- Navbar Start -->
             <div class="col-lg-3 d-none d-lg-block">
-                 @*<a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                @*<a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
                     <h6 class="m-0"><b>W E L C O M E</b></h6>
                     <i class="fa fa-angle-down text-dark"></i>
                       </a>*@
                 @*<nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" >
-            <div class="navbar-nav w-100 overflow-hidden" style="height:200px">
-                <div class="nav-item dropdown">
-                </div>
-                <a href="/Home/Shirt" class="nav-item nav-link">Shirts</a>
-                <a href="/Home/Jeans" class="nav-item nav-link">Jeans</a>
-                <a href="/Home/Dresses" class="nav-item nav-link">Dresses</a>
-                <a href="/Home/Shorts" class="nav-item nav-link">Shorts</a>
-                <a href="/Home/Swim" class="nav-item nav-link">Swimwear</a>
-            </div>
-        </nav>*@
+                        <div class="navbar-nav w-100 overflow-hidden" style="height:200px">
+                            <div class="nav-item dropdown">
+                            </div>
+                            <a href="/Home/Shirt" class="nav-item nav-link">Shirts</a>
+                            <a href="/Home/Jeans" class="nav-item nav-link">Jeans</a>
+                            <a href="/Home/Dresses" class="nav-item nav-link">Dresses</a>
+                            <a href="/Home/Shorts" class="nav-item nav-link">Shorts</a>
+                            <a href="/Home/Swim" class="nav-item nav-link">Swimwear</a>
+                        </div>
+                    </nav>*@
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
@@ -80,7 +82,7 @@
                             <a href="/Account/Logout" class="nav-item nav-link">Logout</a>
                             <a href="/Checkout/Cart" class="nav-item nav-link">
                                 <i class="fas fa-shopping-cart text-primary"></i>
-                                <span class="badge">0</span>
+                                
                             </a>
                         </div>
                     </div>
