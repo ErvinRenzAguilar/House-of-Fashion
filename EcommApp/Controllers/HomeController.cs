@@ -206,9 +206,14 @@ namespace EcommApp.Controllers
             }
             else
             {
-                items.quantity += 1;
-                db.Entry(items).State = EntityState.Modified;
+                var query = (from p in db.cart_items
+                             where p.cart_id == cart_id
+                             && p.prod_id == prod_id
+                             select p).SingleOrDefault();
+                cart_items item = query;
+                item.quantity++;
             }
+
             db.SaveChanges();
             return RedirectToAction("Cart", "Checkout");
 
