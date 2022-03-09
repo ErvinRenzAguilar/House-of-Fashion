@@ -8,28 +8,26 @@
     <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="cart_items">
     <Key>
-      <PropertyRef Name="cart_id" />
+      <PropertyRef Name="cart_items_id" />
     </Key>
-    <Property Name="cart_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cart_items_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cart_id" Type="Int32" Nullable="false" />
     <Property Name="prod_id" Type="Int32" Nullable="false" />
     <Property Name="item_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="quantity" Type="Int32" Nullable="false" />
     <Property Name="price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-    <NavigationProperty Name="cart" Relationship="Self.FK_cart_items_carts" FromRole="cart_items" ToRole="carts" />
-    <NavigationProperty Name="product" Relationship="Self.FK_cart_items_products" FromRole="cart_items" ToRole="products" />
   </EntityType>
   <EntityType Name="cart">
     <Key>
       <PropertyRef Name="cart_id" />
     </Key>
-    <Property Name="cart_id" Type="Int32" Nullable="false" />
-    <Property Name="coup_id" Type="Int32" Nullable="false" />
+    <Property Name="cart_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="coup_id" Type="Int32" />
     <Property Name="user_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="cart_items" Relationship="Self.FK_cart_items_carts" FromRole="carts" ToRole="cart_items" />
     <NavigationProperty Name="coupon" Relationship="Self.FK_carts_coupons" FromRole="carts" ToRole="coupons" />
     <NavigationProperty Name="user" Relationship="Self.FK_carts_users" FromRole="carts" ToRole="users" />
     <NavigationProperty Name="orders" Relationship="Self.FK_Order_carts" FromRole="carts" ToRole="order" />
@@ -81,10 +79,16 @@
     <Property Name="price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="prod_image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="prod_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="cart_items" Relationship="Self.FK_cart_items_products" FromRole="products" ToRole="cart_items" />
+    <Property Name="product_cat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="products1" Relationship="Self.FK_products_products" FromRole="products" ToRole="products1" />
     <NavigationProperty Name="product1" Relationship="Self.FK_products_products" FromRole="products1" ToRole="products" />
-    <Property Name="product_cat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -98,32 +102,8 @@
     <NavigationProperty Name="carts" Relationship="Self.FK_carts_users" FromRole="users" ToRole="carts" />
     <NavigationProperty Name="orders" Relationship="Self.FK_Order_users" FromRole="users" ToRole="order" />
   </EntityType>
-  <Association Name="FK_cart_items_carts">
-    <End Role="carts" Type="Self.cart" Multiplicity="1" />
-    <End Role="cart_items" Type="Self.cart_items" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="carts">
-        <PropertyRef Name="cart_id" />
-      </Principal>
-      <Dependent Role="cart_items">
-        <PropertyRef Name="cart_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_cart_items_products">
-    <End Role="products" Type="Self.product" Multiplicity="1" />
-    <End Role="cart_items" Type="Self.cart_items" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="products">
-        <PropertyRef Name="prod_id" />
-      </Principal>
-      <Dependent Role="cart_items">
-        <PropertyRef Name="prod_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_carts_coupons">
-    <End Role="coupons" Type="Self.coupon" Multiplicity="1" />
+    <End Role="coupons" Type="Self.coupon" Multiplicity="0..1" />
     <End Role="carts" Type="Self.cart" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="coupons">
@@ -214,15 +194,8 @@
     <EntitySet Name="events" EntityType="Self.event" />
     <EntitySet Name="orders" EntityType="Self.order" />
     <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="Tables" EntityType="Self.Table" />
     <EntitySet Name="users" EntityType="Self.user" />
-    <AssociationSet Name="FK_cart_items_carts" Association="Self.FK_cart_items_carts">
-      <End Role="carts" EntitySet="carts" />
-      <End Role="cart_items" EntitySet="cart_items" />
-    </AssociationSet>
-    <AssociationSet Name="FK_cart_items_products" Association="Self.FK_cart_items_products">
-      <End Role="products" EntitySet="products" />
-      <End Role="cart_items" EntitySet="cart_items" />
-    </AssociationSet>
     <AssociationSet Name="FK_carts_coupons" Association="Self.FK_carts_coupons">
       <End Role="coupons" EntitySet="coupons" />
       <End Role="carts" EntitySet="carts" />
@@ -251,13 +224,5 @@
       <End Role="products" EntitySet="products" />
       <End Role="products1" EntitySet="products" />
     </AssociationSet>
-    <EntitySet Name="Tables" EntityType="EcommDBModel.Table" />
   </EntityContainer>
-  <EntityType Name="Table">
-    <Key>
-      <PropertyRef Name="cat_id" />
-    </Key>
-    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="cat_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
 </Schema>

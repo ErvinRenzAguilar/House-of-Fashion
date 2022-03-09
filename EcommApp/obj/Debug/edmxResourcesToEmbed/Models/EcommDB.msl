@@ -4,17 +4,18 @@
     <EntitySetMapping Name="admins">
       <EntityTypeMapping TypeName="EcommDBModel.admin">
         <MappingFragment StoreEntitySet="admin">
-          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="admin_id" ColumnName="admin_id" />
           <ScalarProperty Name="first_name" ColumnName="first_name" />
           <ScalarProperty Name="last_name" ColumnName="last_name" />
           <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cart_items">
       <EntityTypeMapping TypeName="EcommDBModel.cart_items">
         <MappingFragment StoreEntitySet="cart_items">
+          <ScalarProperty Name="cart_items_id" ColumnName="cart_items_id" />
           <ScalarProperty Name="cart_id" ColumnName="cart_id" />
           <ScalarProperty Name="prod_id" ColumnName="prod_id" />
           <ScalarProperty Name="item_name" ColumnName="item_name" />
@@ -68,13 +69,21 @@
     <EntitySetMapping Name="products">
       <EntityTypeMapping TypeName="EcommDBModel.product">
         <MappingFragment StoreEntitySet="products">
-          <ScalarProperty Name="product_cat" ColumnName="product_cat" />
           <ScalarProperty Name="prod_id" ColumnName="prod_id" />
           <ScalarProperty Name="prod_name" ColumnName="prod_name" />
           <ScalarProperty Name="stock" ColumnName="stock" />
           <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="prod_image" ColumnName="prod_image" />
           <ScalarProperty Name="prod_desc" ColumnName="prod_desc" />
+          <ScalarProperty Name="product_cat" ColumnName="product_cat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="EcommDBModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -86,14 +95,6 @@
           <ScalarProperty Name="last_name" ColumnName="last_name" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="email" ColumnName="email" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Tables">
-      <EntityTypeMapping TypeName="EcommDBModel.Table">
-        <MappingFragment StoreEntitySet="Table">
-          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
-          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

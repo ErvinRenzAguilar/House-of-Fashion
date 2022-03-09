@@ -21,10 +21,9 @@ namespace EcommApp.Models
         }
     
         public int cart_id { get; set; }
-        public int coup_id { get; set; }
+        public Nullable<int> coup_id { get; set; }
         public int user_id { get; set; }
     
-        public virtual cart_items cart_items { get; set; }
         public virtual coupon coupon { get; set; }
         public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

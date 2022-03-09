@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,6 +37,7 @@ namespace EcommApp.Controllers
                 try
                 {
                     db.SaveChanges();
+                    db.Database.ExecuteSqlCommand("insert into carts(user_id) values(@id)", new SqlParameter("id", userAccount.user_id));
                     ViewBag.Message = userAccount.first_name + " " + userAccount.last_name + " has successfully registered!";
                 }
                 catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
@@ -51,6 +53,7 @@ namespace EcommApp.Controllers
                             // raise a new exception nesting
                             // the current instance as InnerException
                             raise = new InvalidOperationException(message, raise);
+
                         }
                     }
                     throw raise;

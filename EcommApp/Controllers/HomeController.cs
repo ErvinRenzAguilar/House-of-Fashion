@@ -1,7 +1,7 @@
 ﻿using EcommApp.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -162,5 +162,48 @@ namespace EcommApp.Controllers
         }
 
 
+        //public ActionResult AddToCart(string prodId, string prod_name, int qty, double price)
+        //{
+        //    System.Console.WriteLine("Running");
+
+        //    var user_id = Session["user_id"];
+        //    var cart_id = db.Database.SqlQuery<int>("select cart_id from carts where user_id = @user_id", new SqlParameter("user_id", user_id));
+        //    System.Console.WriteLine(user_id+" "+cart_id);
+        //    db.Database.ExecuteSqlCommand("insert into dbo.cart_items(cart_id, prod_id, item_name, quantity, price ) values(@cart_id, 1, @prod_name, @qty, @prod_price)",
+        //        new SqlParameter("cart_id", cart_id),
+        //        new SqlParameter("prod_id", prodId),
+        //        new SqlParameter("prod_name", prod_name),
+        //        new SqlParameter("qty", qty),
+        //        new SqlParameter("prod_price", price));
+
+
+        //    return RedirectToAction("Shop", "Home");
+        //}
+        public ActionResult AddToCart(string prodId, string prodname, int qty, double price)
+        {
+           
+            int user_id = Convert.ToInt32(Session["user_id"]);
+            
+            int cart_id = Convert.ToInt32((from x in db.carts
+                                           where (x.user_id == user_id)
+                                           select x.cart_id).Single());
+
+            int prod_id = Convert.ToInt16(prodId);
+            int quantity = Convert.ToInt16(qty);
+
+                cart_items items = new cart_items();
+
+            items.cart_id = cart_id;
+            items.prod_id = prod_id;
+            items.item_name = prodname;
+            items.price = Convert.ToDecimal(price);
+            items.quantity = qty;
+
+            db.cart_items.Add(items);
+            db.SaveChanges();
+            
+            return RedirectToAction("Cart", "Checkout");
+
+        }
     }
 }
