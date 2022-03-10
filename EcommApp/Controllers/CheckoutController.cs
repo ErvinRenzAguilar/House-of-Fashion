@@ -59,6 +59,52 @@ namespace EcommApp.Controllers
             }
         }
 
+        public ActionResult Plus(int? prod_id)
+        {
+
+            int user_id = Convert.ToInt32(Session["user_id"]);
+
+            int cart_id = Convert.ToInt32((from x in db.carts
+                                           where (x.user_id == user_id)
+                                           select x.cart_id).Single());
+            
+            
+            var query = (from p in db.cart_items
+                             where p.cart_id == cart_id
+                             && p.prod_id == prod_id
+                             select p).SingleOrDefault();
+                cart_items item = query;
+                item.quantity++;
+           
+
+            db.SaveChanges();
+            return RedirectToAction("Cart", "Checkout");
+
+        }
+        public ActionResult Minus(int? prod_id)
+        {
+
+            int user_id = Convert.ToInt32(Session["user_id"]);
+
+            int cart_id = Convert.ToInt32((from x in db.carts
+                                           where (x.user_id == user_id)
+                                           select x.cart_id).Single());
+
+
+            var query = (from p in db.cart_items
+                         where p.cart_id == cart_id
+                         && p.prod_id == prod_id
+                         select p).SingleOrDefault();
+            cart_items item = query;
+           
+            item.quantity--;
+            if(item.quantity == 0)
+              db.cart_items.Remove(item);
+            
+            db.SaveChanges();
+            return RedirectToAction("Cart", "Checkout");
+
+        }
         public ActionResult Payment()
         {
             if (Session["user_id"] != null)
