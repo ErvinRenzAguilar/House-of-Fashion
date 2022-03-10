@@ -105,6 +105,63 @@ namespace EcommApp.Controllers
             return RedirectToAction("Cart", "Checkout");
 
         }
+
+        public ActionResult ApplyCoupon()
+        {
+            if (Session["user_id"] != null)
+            {
+
+                return RedirectToAction("Cart", "Checkout");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult ApplyCoupon(coupon coup)
+        {
+            if (Session["user_id"] != null)
+            {
+                int user_id = Convert.ToInt32(Session["user_id"]);
+                int cart_id = Convert.ToInt32((from x in db.carts
+                                               where (x.user_id == user_id)
+                                               select x.cart_id).Single());
+
+                //retrieve coupon code
+                var cpn = db.coupons.SingleOrDefault(c => c.coup_code == coup.coup_code);
+                String cat = cpn.category.ToString();
+                decimal disc_pct = Convert.ToDecimal(cpn.disc_pct);
+                decimal discount = 0;
+
+                //check if current date is valid for event (to be added)
+                //retrieve list of cart items
+                var cartQuery = from p in db.cart_items
+                                where p.cart_id == cart_id
+                                select p;
+
+                List<cart_items> items = cartQuery.ToList();
+                for(int i = 0; i < items.Count; i++)
+                {
+                    //find specific cart item in products table and check its category
+                    cart_items item = items[i];
+                    var prod = db.products.Find(item.prod_id);
+                    if (string.Equals(prod.product_cat, cat))
+                    {
+                        //change cart item price
+                        discount = item.price * (disc_pct / 100);
+                        item.price -= discount;
+                        db.SaveChanges();
+                    }
+                }
+                return RedirectToAction("Cart", "Checkout");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
         public ActionResult Payment()
         {
             if (Session["user_id"] != null)
