@@ -2,6 +2,7 @@
 @model coupon
 @{
     ViewBag.Title = "Cart";
+    ViewBag.Message = TempData["ErrorMessage"];
 }
 @{ 
     decimal total = 0;
@@ -74,20 +75,19 @@
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
                     <div class="input-group">
-                        @*<input type="text" class="form-control p-4" placeholder="Coupon Code">*@
                         @Html.EditorFor(model => model.coup_code, new { htmlAttributes = new { @class = "form-control p-3", placeholder = "Coupon Code" } })
                         @Html.ValidationMessageFor(model => model.coup_code, "", new { @class = "text-danger" })
                         <div class="input-group-append">
-                            <input type="submit" value="ApplyCoupon" class="btn btn-primary" />
-                            @if (ViewBag.Message != null)
-                            {
-                                @ViewBag.message;
-                            }
+                            <input type="submit" value="Apply Coupon" class="btn btn-primary" />
                         </div>
                     </div>
-                    
+                    if (ViewBag.Message != null)
+                    {
+                        <div class="text-danger">
+                            @ViewBag.Message
+                        </div>
+                    }
                 }
                 <div class="card border-secondary mb-5">
                     <div class="card-header bg-secondary border-0">

@@ -133,6 +133,7 @@ namespace EcommApp.Controllers
 
                     //retrieve coupon code
                     var cpn = db.coupons.SingleOrDefault(c => c.coup_code == coup.coup_code);
+                    
                     if (cpn != null)
                     {
                         String cat = cpn.category.ToString();
@@ -162,11 +163,17 @@ namespace EcommApp.Controllers
 
                             }
                         }
+                        db.SaveChanges();
                     }
-                    db.SaveChanges();
-                    
+                    //if coupon code does not exist
+                    else
+                    {
+                        //ModelState.AddModelError("", "This coupon code does not exist!");
+                        TempData["ErrorMessage"] = "This coupon code does not exist.";
+                        return RedirectToAction("Cart", "Checkout");
+
+                    }
                 }
-                
                 return RedirectToAction("Cart", "Checkout");
             }
             else
