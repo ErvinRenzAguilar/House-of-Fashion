@@ -136,39 +136,51 @@ namespace EcommApp.Controllers
                     
                     if (cpn != null)
                     {
+                        //store coupon details
                         String cat = cpn.category.ToString();
                         decimal disc_pct = Convert.ToDecimal(cpn.disc_pct);
                         decimal discount = 0;
 
-                        //check if current date is valid for event (to be added)
-                        //retrieve list of cart items
-                        var cartQuery = from p in db.cart_items
-                                        where p.cart_id == cart_id
-                                        select p;
+                        //retrieve associated event
+                        var ev = db.events.SingleOrDefault(e => e.ev_id == cpn.event_id);
 
-                        List<cart_items> items = cartQuery.ToList();
-                        for (int i = 0; i < items.Count; i++)
+                        //check if current date is valid for event
+                        if (DateTime.Now >= ev.start_date && DateTime.Now <= ev.end_date)
                         {
-                            //find specific cart item in products table and check its category
-                            cart_items item = items[i];
-                            var prod = db.products.Find(item.prod_id);
-                            if (string.Equals(prod.product_cat, cat))
-                            {
-                                //change cart item price
-                                if (prod.price == item.price)
-                                {
-                                    discount = item.price * (disc_pct / 100);
-                                    item.price -= discount;
-                                }
+                            //retrieve list of cart items
+                            var cartQuery = from p in db.cart_items
+                                            where p.cart_id == cart_id
+                                            select p;
 
+                            List<cart_items> items = cartQuery.ToList();
+                            for (int i = 0; i < items.Count; i++)
+                            {
+                                //find specific cart item in products table and check its category
+                                cart_items item = items[i];
+                                var prod = db.products.Find(item.prod_id);
+                                if (string.Equals(prod.product_cat, cat))
+                                {
+                                    //change cart item price
+                                    if (prod.price == item.price)
+                                    {
+                                        discount = item.price * (disc_pct / 100);
+                                        item.price -= discount;
+                                    }
+
+                                }
                             }
+                            db.SaveChanges();
                         }
-                        db.SaveChanges();
+                        //if coupon code is invalid for specific event time
+                        else
+                        {
+                            TempData["ErrorMessage"] = "This coupon code is no longer valid.";
+                            return RedirectToAction("Cart", "Checkout");
+                        }
                     }
                     //if coupon code does not exist
                     else
                     {
-                        //ModelState.AddModelError("", "This coupon code does not exist!");
                         TempData["ErrorMessage"] = "This coupon code does not exist.";
                         return RedirectToAction("Cart", "Checkout");
 
