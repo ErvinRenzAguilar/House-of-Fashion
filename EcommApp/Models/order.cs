@@ -16,12 +16,11 @@ namespace EcommApp.Models
     {
         public int order_id { get; set; }
         public int user_id { get; set; }
-        public int coup_id { get; set; }
         public int cart_id { get; set; }
         public string paym_type { get; set; }
-        public System.DateTime order_date { get; set; }
-        public System.DateTime del_date { get; set; }
-        public decimal grant_total { get; set; }
+        public decimal grand_total { get; set; }
+        public string mobile_num { get; set; }
+        public byte[] address { get; set; }
     
         public virtual cart cart { get; set; }
         public virtual order order1 { get; set; }

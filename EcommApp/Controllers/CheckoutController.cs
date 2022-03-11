@@ -27,7 +27,7 @@ namespace EcommApp.Controllers
                 IEnumerable<cart_items> items = query.ToList();
                 ViewData["items"] = items;
                 return View();
-               
+
             }
             else
             {
@@ -44,9 +44,9 @@ namespace EcommApp.Controllers
                                                where (x.user_id == user_id)
                                                select x.cart_id).Single());
                 var query = (from p in db.cart_items
-                            where p.cart_id == cart_id
-                            && p.prod_id == id
-                            select p).SingleOrDefault();
+                             where p.cart_id == cart_id
+                             && p.prod_id == id
+                             select p).SingleOrDefault();
 
                 cart_items item = query;
                 db.cart_items.Remove(item);
@@ -67,15 +67,15 @@ namespace EcommApp.Controllers
             int cart_id = Convert.ToInt32((from x in db.carts
                                            where (x.user_id == user_id)
                                            select x.cart_id).Single());
-            
-            
+
+
             var query = (from p in db.cart_items
-                             where p.cart_id == cart_id
-                             && p.prod_id == prod_id
-                             select p).SingleOrDefault();
-                cart_items item = query;
-                item.quantity++;
-           
+                         where p.cart_id == cart_id
+                         && p.prod_id == prod_id
+                         select p).SingleOrDefault();
+            cart_items item = query;
+            item.quantity++;
+
 
             db.SaveChanges();
             return RedirectToAction("Cart", "Checkout");
@@ -96,11 +96,11 @@ namespace EcommApp.Controllers
                          && p.prod_id == prod_id
                          select p).SingleOrDefault();
             cart_items item = query;
-           
+
             item.quantity--;
-            if(item.quantity == 0)
-              db.cart_items.Remove(item);
-            
+            if (item.quantity == 0)
+                db.cart_items.Remove(item);
+
             db.SaveChanges();
             return RedirectToAction("Cart", "Checkout");
 
@@ -133,7 +133,7 @@ namespace EcommApp.Controllers
 
                     //retrieve coupon code
                     var cpn = db.coupons.SingleOrDefault(c => c.coup_code == coup.coup_code);
-                    
+
                     if (cpn != null)
                     {
                         //store coupon details
@@ -197,6 +197,31 @@ namespace EcommApp.Controllers
         {
             if (Session["user_id"] != null)
             {
+                int user_id = Convert.ToInt32(Session["user_id"]);
+                int cart_id = Convert.ToInt32((from x in db.carts
+                                               where (x.user_id == user_id)
+                                               select x.cart_id).Single());
+
+                var query = from p in db.cart_items
+                            where p.cart_id == cart_id
+                            select p;
+
+                //retrieve cart items in current user's cart
+                IEnumerable<cart_items> items = query.ToList();
+                ViewData["items"] = items;
+
+                //int user_id = Convert.ToInt32(Session["user_id"]);
+                //int cart_id = Convert.ToInt32((from x in db.carts
+                //                               where (x.user_id == user_id)
+                //                               select x.cart_id).Max());
+                //var query = (from p in db.carts
+                //             where p.cart_id == cart_id
+                //             && p.cart_id == id
+                //             select p).Max();
+
+                //cart item = query;
+                //db.carts.Remove(item);
+                //db.SaveChanges();
                 return View();
             }
             else

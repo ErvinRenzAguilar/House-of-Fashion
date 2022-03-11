@@ -57,14 +57,13 @@
     <EntitySetMapping Name="orders">
       <EntityTypeMapping TypeName="EcommDBModel.order">
         <MappingFragment StoreEntitySet="order">
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="mobile_num" ColumnName="mobile_num" />
+          <ScalarProperty Name="grand_total" ColumnName="grand_total" />
           <ScalarProperty Name="order_id" ColumnName="order_id" />
           <ScalarProperty Name="user_id" ColumnName="user_id" />
-          <ScalarProperty Name="coup_id" ColumnName="coup_id" />
           <ScalarProperty Name="cart_id" ColumnName="cart_id" />
           <ScalarProperty Name="paym_type" ColumnName="paym_type" />
-          <ScalarProperty Name="order_date" ColumnName="order_date" />
-          <ScalarProperty Name="del_date" ColumnName="del_date" />
-          <ScalarProperty Name="grant_total" ColumnName="grant_total" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
