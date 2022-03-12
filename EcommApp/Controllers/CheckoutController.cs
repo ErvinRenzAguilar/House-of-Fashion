@@ -234,31 +234,41 @@ namespace EcommApp.Controllers
 
                 //retrieve cart items in current user's cart
                 IEnumerable<cart_items> items = query.ToList();
-                decimal total = 0;
-                foreach (var item in items)
+                if (ModelState.IsValid)
                 {
-                    //find product and update stock quantity
-                    var prod = db.products.Find(item.prod_id);
-                    prod.stock -= item.quantity;
 
-                    //compute grand total
-                    decimal subtotal = item.price * item.quantity;
-                    total += subtotal;
+                    decimal total = 0;
+                    foreach (var item in items)
+                    {
+                        //find product and update stock quantity
+                        var prod = db.products.Find(item.prod_id);
+                        prod.stock -= item.quantity;
 
-                    //then remove item from cart
-                    db.cart_items.Remove(item);
+                        //compute grand total
+                        decimal subtotal = item.price * item.quantity;
+                        total += subtotal;
+
+                        //then remove item from cart
+                        db.cart_items.Remove(item);
+                    }
+
+                    //saving order details
+                    placedOrder.user_id = user_id;
+                    placedOrder.cart_id = cart_id;
+                    placedOrder.grand_total = total + 50;
+                    db.orders.Add(placedOrder);
+
+
+                    db.SaveChanges();
+                    TempData["ConfirmationMessage"] = "Your order has been placed!";
+                    return RedirectToAction("Cart", "Checkout");
                 }
-
-                //saving order details
-                placedOrder.user_id = user_id;
-                placedOrder.cart_id = cart_id;
-                placedOrder.grand_total = total + 50;
-                db.orders.Add(placedOrder);
-
-
-                db.SaveChanges();
-                TempData["ConfirmationMessage"] = "Your order has been placed!";
-                return RedirectToAction("Cart", "Checkout");
+                else
+                {
+                    ViewBag.Message = "Please fill out all required fields.";
+                    ViewData["items"] = items;
+                    return View();
+                }
             }
             else
             {

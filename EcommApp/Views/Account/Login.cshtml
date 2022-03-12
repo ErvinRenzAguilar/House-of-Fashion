@@ -108,13 +108,13 @@
                         <div class="form-row">
                             <div class="col-lg-7">
                                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control my-1 p-2", placeholder = "Email Address" } })
-                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.email, null, new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7">
                                 @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control my-1 p-2", placeholder = "Password" } })
-                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.password, null, new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-row">

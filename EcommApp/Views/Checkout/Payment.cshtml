@@ -31,6 +31,12 @@
 <!-- Checkout Start -->
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
+        @if (ViewBag.Message != null)
+        {
+        <div class="col-lg-7 text-danger">
+            @ViewBag.Message
+        </div>
+        }
         <div class="col-lg-8">
             @using (Html.BeginForm("Payment", "Checkout", FormMethod.Post))
             {
@@ -54,13 +60,13 @@
                         </div>
 
                         <div class="col-md-6 form-group">
-                            <label>Mobile Number</label>
+                            <label>Mobile Number*</label>
                             @Html.EditorFor(model => model.mobile_num, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your mobile number" } })
                             @Html.ValidationMessageFor(model => model.mobile_num, "", new { @class = "text-danger" })
                             @*<input class="form-control" type="text" placeholder="Enter your mobile number">*@
                         </div>
                         <div class="col-md-6 form-group">
-                            <label>Address</label>
+                            <label>Address*</label>
                             @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your address" } })
                             @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
                             @*<input class="form-control" type="text" placeholder="Enter your address">*@
@@ -69,7 +75,7 @@
                 </div>
                 <div class="card border-secondary mb-5">
                     <div class="card-header bg-secondary border-0">
-                        <h4 class="font-weight-semi-bold m-0">Payment</h4>
+                        <h4 class="font-weight-semi-bold m-0">Payment*</h4>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
@@ -96,42 +102,42 @@
                     </div>
                 </div>
             }
-            </div>
-            <div class="col-lg-4">
-                <div class="card border-secondary mb-5">
-                    <div class="card-header bg-secondary border-0">
-                        <h4 class="font-weight-semi-bold m-0">Order Total</h4>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="font-weight-medium mb-3">Products</h5>
-                        @*Show cart items here*@
-                        @foreach (var item in items)
-                        {
-                            <div class="d-flex justify-content-between">
-                                <p>@item.item_name (@item.quantity)</p>
-                                <p>₱@item.price</p>
-
-                            </div>
-                        }
-                        <hr class="mt-0">
-                        <div class="d-flex justify-content-between mb-3 pt-1">
-                            <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 class="font-weight-medium">₱@total</h6>
-                        </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-secondary mb-5">
+                <div class="card-header bg-secondary border-0">
+                    <h4 class="font-weight-semi-bold m-0">Order Total</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="font-weight-medium mb-3">Products</h5>
+                    @*Show cart items here*@
+                    @foreach (var item in items)
+                    {
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">₱50</h6>
+                            <p>@item.item_name (@item.quantity)</p>
+                            <p>₱@item.price</p>
+
                         </div>
+                    }
+                    <hr class="mt-0">
+                    <div class="d-flex justify-content-between mb-3 pt-1">
+                        <h6 class="font-weight-medium">Subtotal</h6>
+                        <h6 class="font-weight-medium">₱@total</h6>
                     </div>
-                    <div class="card-footer border-secondary bg-transparent">
-                        <div class="d-flex justify-content-between mt-2">
-                            <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">₱@(total + 50)</h5>
-                        </div>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-medium">Shipping</h6>
+                        <h6 class="font-weight-medium">₱50</h6>
+                    </div>
+                </div>
+                <div class="card-footer border-secondary bg-transparent">
+                    <div class="d-flex justify-content-between mt-2">
+                        <h5 class="font-weight-bold">Total</h5>
+                        <h5 class="font-weight-bold">₱@(total + 50)</h5>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </div>
 
 
