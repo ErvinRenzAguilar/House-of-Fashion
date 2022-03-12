@@ -21,9 +21,15 @@ namespace EcommApp.Models
         public int order_id { get; set; }
         public int user_id { get; set; }
         public int cart_id { get; set; }
+
+        [Required(ErrorMessage = "Payment Type is required.")]
         public string paym_type { get; set; }
         public decimal grand_total { get; set; }
+
+        [Required(ErrorMessage = "Mobile Number is required.")]
         public string mobile_num { get; set; }
+
+        [Required(ErrorMessage = "Address is required.")]
         public string address { get; set; }
     
         public virtual cart cart { get; set; }

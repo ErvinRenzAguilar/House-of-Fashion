@@ -7,7 +7,7 @@
 @{ 
     decimal total = 0;
     List<cart_items> items = ViewData["items"] as List<cart_items>;
-    if(items.Count() != 0)
+    if (items.Count() != 0)
     {
         foreach (var item in items)
         {
@@ -29,6 +29,11 @@
 <!-- Cart Start -->
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
+        @if (TempData["ConfirmationMessage"] != null)
+        {
+            <h4 class="font-weight-semi-bold m-0 text-success">@TempData["ConfirmationMessage"]</h4>
+            <hr>
+        }
         @if (items.Count() != 0)
         {
             <div class="col-lg-8 table-responsive mb-5">
@@ -51,7 +56,7 @@
                                 <td class="align-middle">
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
-                                            <a  href="/Checkout/Minus?prod_id=@item.prod_id" class="btn btn-sm btn-primary btn-minus">
+                                            <a href="/Checkout/Minus?prod_id=@item.prod_id" class="btn btn-sm btn-primary btn-minus">
                                                 <i class="fa fa-minus"></i>
                                             </a>
                                         </div>
@@ -113,9 +118,11 @@
                     </div>
                 </div>
             </div>
-            }else{
+        }
+        else
+        {
             <h4 class="font-weight-semi-bold m-0">No items in your cart</h4>
-            }
-        </div>
+        }
+    </div>
     </div>
 <!-- Cart End -->
