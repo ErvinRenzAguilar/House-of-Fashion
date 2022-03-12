@@ -52,13 +52,13 @@
     <Key>
       <PropertyRef Name="order_id" />
     </Key>
-    <Property Name="order_id" Type="int" Nullable="false" />
+    <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="user_id" Type="int" Nullable="false" />
     <Property Name="cart_id" Type="int" Nullable="false" />
     <Property Name="paym_type" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="grand_total" Type="numeric" Precision="18" Scale="2" Nullable="false" />
     <Property Name="mobile_num" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="address" Type="varbinary(max)" Nullable="false" />
+    <Property Name="address" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="products">
     <Key>

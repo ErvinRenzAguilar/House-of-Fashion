@@ -11,16 +11,20 @@ namespace EcommApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class order
     {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int order_id { get; set; }
         public int user_id { get; set; }
         public int cart_id { get; set; }
         public string paym_type { get; set; }
         public decimal grand_total { get; set; }
         public string mobile_num { get; set; }
-        public byte[] address { get; set; }
+        public string address { get; set; }
     
         public virtual cart cart { get; set; }
         public virtual order order1 { get; set; }

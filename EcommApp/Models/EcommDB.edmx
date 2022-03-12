@@ -57,13 +57,13 @@
           <Key>
             <PropertyRef Name="order_id" />
           </Key>
-          <Property Name="order_id" Type="int" Nullable="false" />
+          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="cart_id" Type="int" Nullable="false" />
           <Property Name="paym_type" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="grand_total" Type="numeric" Precision="18" Scale="2" Nullable="false" />
           <Property Name="mobile_num" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="address" Type="varbinary(max)" Nullable="false" />
+          <Property Name="address" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="products">
           <Key>
@@ -263,7 +263,7 @@
           <Key>
             <PropertyRef Name="order_id" />
           </Key>
-          <Property Name="order_id" Type="Int32" Nullable="false" />
+          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="cart_id" Type="Int32" Nullable="false" />
           <Property Name="paym_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -273,7 +273,7 @@
           <NavigationProperty Name="user" Relationship="Self.FK_Order_users" FromRole="order" ToRole="users" />
           <Property Name="grand_total" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="mobile_num" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="product">
           <Key>

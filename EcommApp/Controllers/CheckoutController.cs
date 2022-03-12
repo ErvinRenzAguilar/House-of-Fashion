@@ -209,20 +209,48 @@ namespace EcommApp.Controllers
                 //retrieve cart items in current user's cart
                 IEnumerable<cart_items> items = query.ToList();
                 ViewData["items"] = items;
-
-                //int user_id = Convert.ToInt32(Session["user_id"]);
-                //int cart_id = Convert.ToInt32((from x in db.carts
-                //                               where (x.user_id == user_id)
-                //                               select x.cart_id).Max());
-                //var query = (from p in db.carts
-                //             where p.cart_id == cart_id
-                //             && p.cart_id == id
-                //             select p).Max();
-
-                //cart item = query;
-                //db.carts.Remove(item);
-                //db.SaveChanges();
                 return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Payment(order placedOrder)
+        {
+            if (Session["user_id"] != null)
+            {
+                int user_id = Convert.ToInt32(Session["user_id"]);
+                int cart_id = Convert.ToInt32((from x in db.carts
+                                               where (x.user_id == user_id)
+                                               select x.cart_id).Single());
+
+                var query = from p in db.cart_items
+                            where p.cart_id == cart_id
+                            select p;
+
+
+                //retrieve cart items in current user's cart
+                IEnumerable<cart_items> items = query.ToList();
+                decimal total = 0;
+
+                //compute grand total then remove item from cart
+                foreach (var item in items)
+                {
+                    decimal subtotal = item.price * item.quantity;
+                    total += subtotal;
+                    db.cart_items.Remove(item);
+                }
+
+                //saving order details
+                placedOrder.user_id = user_id;
+                placedOrder.cart_id = cart_id;
+                placedOrder.grand_total = total + 50;
+                db.orders.Add(placedOrder);
+                db.SaveChanges();
+                return RedirectToAction("Cart", "Checkout");
             }
             else
             {
