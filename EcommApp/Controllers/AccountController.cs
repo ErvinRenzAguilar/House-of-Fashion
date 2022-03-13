@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using EcommApp.Models;
 
@@ -71,6 +72,7 @@ namespace EcommApp.Controllers
         [HttpPost]
         public ActionResult Login(user userAccount)
         {
+
             var user = db.users.SingleOrDefault(u => u.email == userAccount.email && u.password == userAccount.password);
             if (user != null)
             {
