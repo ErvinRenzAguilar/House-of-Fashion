@@ -11,10 +11,10 @@
         <div class="row justify-content-center">
             <div class="title">
                 <h2>Coupons</h2>
-                <!-- Added -->
+                
                 <p>
                     <a href="\Admin\AddCoupon" class="btn">Add New Coupon</a>
-                    @*@Html.ActionLink("Add New Coupon", "AddCoupon")*@
+                    
                 </p>
             </div>
             <table>
@@ -34,12 +34,7 @@
                     <th>
                         @Html.DisplayName("Category")
                     </th>
-                    @*<th>Coupon Code</th>
-        <th>Event Name</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Discount Price</th>
-        <th>Category</th>*@
+                    
                 </tr>
                 @foreach (var item in Model)
                 {
@@ -65,26 +60,6 @@
                 </td>
             </tr>
                 }
-                @*<tr>
-            <td>VAL14</td>
-            <td>Valentines' Day Sale</td>
-            <td>February 1, 2022</td>
-            <td>February 15, 2022</td>
-            <td>15%</td>
-            <td>Dresses</td>
-            <td><a href="\Admin\EditCoupon" class="btn">Edit</a></td>
-            <td><a href="#" class="btn">Delete</a></td>
-        </tr>
-        <tr>
-            <td>XMAS25</td>
-            <td>Christmas Sale</td>
-            <td>December 1, 2022</td>
-            <td>December 26, 2022</td>
-            <td>20%</td>
-            <td>Tops</td>
-            <td><a href="#" class="btn">Edit</a></td>
-            <td><a href="#" class="btn">Delete</a></td>
-        </tr>*@
             </table>
         </div>
     </div>

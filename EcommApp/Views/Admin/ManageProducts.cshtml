@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<EcommApp.Models.product>
-<!-- added the above -->
 
 @{
     ViewBag.Title = "Manage Products";
@@ -16,45 +15,30 @@
         <div class="product-listing">
             <div class="title">
                 <h2>Products</h2>
-                <!-- Added -->
                 <p>
                     <a href="/Admin/AddProduct" class="btn">Add New Product</a>
-                    @*@Html.ActionLink("Add New Product", "AddProduct")*@
                 </p>
             </div>
             <table>
                 <tr>
-                    @* Commented out below *@
-                    @*<th>Product</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>*@
-                    @* Replaced with  *@
                     <th>
                         @Html.DisplayName("Product Name")
-                        @*@Html.DisplayNameFor(model => model.prod_name)*@
                     </th>
                     <th>
                         @Html.DisplayName("Stock")
-                        @*@Html.DisplayNameFor(model => model.stock)*@
                     </th>
                     <th>
                         @Html.DisplayName("Price")
-                        @*@Html.DisplayNameFor(model => model.price)*@
                     </th>
                     <th>
                         @Html.DisplayName("Product Image")
-                        @*@Html.DisplayNameFor(model => model.prod_image)*@
-                    </th>
                     <th>
                         @Html.DisplayName("Product Description")
-                        @*@Html.DisplayNameFor(model => model.prod_desc)*@
                     </th>
                     <th>
                         @Html.DisplayName("Product Category")
-                        @*@Html.DisplayNameFor(model => model.prod_desc)*@
                     </th>
-                </tr> @* <-- this table header row was missing this closing tr tag*@
+                </tr>
 
                 @foreach (var item in Model)
                 {
