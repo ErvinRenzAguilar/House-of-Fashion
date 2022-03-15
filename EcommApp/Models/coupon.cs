@@ -11,7 +11,8 @@ namespace EcommApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class coupon
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +23,10 @@ namespace EcommApp.Models
     
         public int coup_id { get; set; }
         public Nullable<int> event_id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        [Required(ErrorMessage = "Discount Price is required.")]
         public Nullable<decimal> disc_pct { get; set; }
+        [Required(ErrorMessage = "Coupon Code is required.")]
         public string coup_code { get; set; }
         public string category { get; set; }
     

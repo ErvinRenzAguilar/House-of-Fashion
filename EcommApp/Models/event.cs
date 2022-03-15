@@ -11,7 +11,8 @@ namespace EcommApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class @event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,8 @@ namespace EcommApp.Models
         }
     
         public int ev_id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        [Required(ErrorMessage = "Event Name is required.")]
         public string ev_name { get; set; }
         public System.DateTime start_date { get; set; }
         public System.DateTime end_date { get; set; }
