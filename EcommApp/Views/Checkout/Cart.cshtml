@@ -3,8 +3,7 @@
 @{
     ViewBag.Title = "Cart";
     ViewBag.Message = TempData["ErrorMessage"];
-}
-@{ 
+
     decimal total = 0;
     List<cart_items> items = ViewData["items"] as List<cart_items>;
     if (items.Count() != 0)
@@ -50,7 +49,7 @@
                         @foreach (var item in items)
                         {
                             <tr>
-                                <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;">@item.item_name</td>
+                                <td class="align-middle">@item.item_name</td>
                                 <td class="align-middle">@item.price</td>
                                 <td class="align-middle">
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
@@ -61,7 +60,7 @@
                                         </div>
                                         <input type="text" class="form-control form-control-sm bg-secondary text-center" value="@item.quantity">
                                         <div class="input-group-btn">
-                                            <a href="/Checkout/Plus?prod_id=@item.prod_id" class="btn btn-sm btn-primary btn-plus" hre>
+                                            <a href="/Checkout/Plus?prod_id=@item.prod_id" class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
                                             </a>
                                         </div>

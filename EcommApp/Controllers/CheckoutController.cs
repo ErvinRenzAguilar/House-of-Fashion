@@ -124,12 +124,28 @@ namespace EcommApp.Controllers
         {
             if (Session["user_id"] != null)
             {
+                int user_id = Convert.ToInt32(Session["user_id"]);
+                int cart_id = Convert.ToInt32((from x in db.carts
+                                               where (x.user_id == user_id)
+                                               select x.cart_id).Single());
+                //retrieve list of cart items
+                var cartQuery = from p in db.cart_items
+                                where p.cart_id == cart_id
+                                select p;
+
+                List<cart_items> items = cartQuery.ToList();
+
+                //store original prices of cart items
+                List<decimal> origPrices = new List<decimal>();
+                foreach (var item in items)
+                {
+                    origPrices.Add(item.price);
+                }
+                ViewData["origPrices"] = origPrices;
+
                 if (coup.coup_code != null)
                 {
-                    int user_id = Convert.ToInt32(Session["user_id"]);
-                    int cart_id = Convert.ToInt32((from x in db.carts
-                                                   where (x.user_id == user_id)
-                                                   select x.cart_id).Single());
+                    
 
                     //retrieve coupon code
                     var cpn = db.coupons.SingleOrDefault(c => c.coup_code == coup.coup_code);
@@ -147,12 +163,7 @@ namespace EcommApp.Controllers
                         //check if current date is valid for event
                         if (DateTime.Now >= ev.start_date && DateTime.Now <= ev.end_date)
                         {
-                            //retrieve list of cart items
-                            var cartQuery = from p in db.cart_items
-                                            where p.cart_id == cart_id
-                                            select p;
-
-                            List<cart_items> items = cartQuery.ToList();
+                            
                             for (int i = 0; i < items.Count; i++)
                             {
                                 //find specific cart item in products table and check its category
@@ -236,7 +247,6 @@ namespace EcommApp.Controllers
                 IEnumerable<cart_items> items = query.ToList();
                 if (ModelState.IsValid)
                 {
-
                     decimal total = 0;
                     foreach (var item in items)
                     {
