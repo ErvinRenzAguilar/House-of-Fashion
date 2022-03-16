@@ -204,6 +204,14 @@ namespace EcommApp.Controllers
                 return RedirectToAction("Login", "Account");
             }
         }
+        
+        public String GetOrigPrice(int pid)
+        {
+            string price = (from x in db.products
+                            where (x.prod_id == pid)
+                            select x.price).Single().ToString();
+            return price;
+        }
         public ActionResult Payment()
         {
             if (Session["user_id"] != null)

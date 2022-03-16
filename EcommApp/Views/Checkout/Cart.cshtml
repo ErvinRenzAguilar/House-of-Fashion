@@ -1,6 +1,7 @@
 ﻿@using EcommApp.Models;
 @model coupon
 @{
+    EcommDBEntities db = new EcommDBEntities();
     ViewBag.Title = "Cart";
     ViewBag.Message = TempData["ErrorMessage"];
 
@@ -15,6 +16,13 @@
         }
     }
 
+    decimal GetOrigPrice(int pid)
+    {
+        decimal price = (from x in db.products
+                        where (x.prod_id == pid)
+                        select x.price).Single();
+        return price;
+    }
 }
 
 <!-- Page Header Start -->
@@ -50,7 +58,10 @@
                         {
                             <tr>
                                 <td class="align-middle">@item.item_name</td>
-                                <td class="align-middle">@item.price</td>
+                                <td class="align-middle">@item.price @if (GetOrigPrice(item.prod_id)!=item.price)
+                                {
+                                    <strike style="color:orangered;">@GetOrigPrice(item.prod_id)</strike>
+                                }</td>
                                 <td class="align-middle">
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
