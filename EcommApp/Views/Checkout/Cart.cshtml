@@ -19,9 +19,35 @@
     decimal GetOrigPrice(int pid)
     {
         decimal price = (from x in db.products
-                        where (x.prod_id == pid)
-                        select x.price).Single();
+                         where (x.prod_id == pid)
+                         select x.price).Single();
         return price;
+    }
+
+    int user_id = Convert.ToInt32(Session["user_id"]);
+    int cart_id = Convert.ToInt32((from x in db.carts
+                                   where (x.user_id == user_id)
+                                   select x.cart_id).Single());
+
+    var cart = (from x in db.carts
+                where (x.cart_id == cart_id)
+                select x).Single();
+
+    Boolean hasCoupon(cart c)
+    {
+        if (c.coup_id == null)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    String getCoupon(cart c)
+    {
+        var cpn = (from x in db.coupons
+                    where (x.coup_id == c.coup_id)
+                    select x).Single();
+        return cpn.coup_code;
     }
 }
 
@@ -103,29 +129,35 @@
                         </div>
                     }
                 }
-                <div class="card border-secondary mb-5">
-                    <div class="card-header bg-secondary border-0">
-                        <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
-                    </div>
+            <div class="card border-secondary mb-5">
+                <div class="card-header bg-secondary border-0">
+                    <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
+                </div>
 
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between mb-3 pt-1">
-                            <h6 class="font-weight-medium">Total</h6>
-                            <h6 class="font-weight-medium">₱@total</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">₱50</h6>
-                        </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3 pt-1">
+                        <h6 class="font-weight-medium">Total</h6>
+                        <h6 class="font-weight-medium">₱@total</h6>
                     </div>
-                    <div class="card-footer border-secondary bg-transparent">
-                        <div class="d-flex justify-content-between mt-2">
-                            <h5 class="font-weight-bold">Grand Total</h5>
-                            <h5 class="font-weight-bold">₱@(total + 50)</h5>
-                        </div>
-                        <a href="/Checkout/Payment"><button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button></a>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-medium">Shipping</h6>
+                        <h6 class="font-weight-medium">₱50</h6>
                     </div>
                 </div>
+                @if (hasCoupon(cart))
+                {
+                    <div class="card-body">
+                        <h6 class="font-weight-medium">Coupon Applied: @getCoupon(cart)</h6>
+                    </div>
+                }
+                <div class="card-footer border-secondary bg-transparent">
+                    <div class="d-flex justify-content-between mt-2">
+                        <h5 class="font-weight-bold">Grand Total</h5>
+                        <h5 class="font-weight-bold">₱@(total + 50)</h5>
+                    </div>
+                    <a href="/Checkout/Payment"><button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button></a>
+                </div>
+            </div>
             </div>
         }
         else

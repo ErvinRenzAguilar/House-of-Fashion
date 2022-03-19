@@ -135,57 +135,59 @@ namespace EcommApp.Controllers
 
                 List<cart_items> items = cartQuery.ToList();
 
-                //store original prices of cart items
-                List<decimal> origPrices = new List<decimal>();
-                foreach (var item in items)
-                {
-                    origPrices.Add(item.price);
-                }
-                ViewData["origPrices"] = origPrices;
-
+                //if user entered a coupon code
                 if (coup.coup_code != null)
                 {
-                    
-
                     //retrieve coupon code
                     var cpn = db.coupons.SingleOrDefault(c => c.coup_code == coup.coup_code);
 
+                    //if coupon exists
                     if (cpn != null)
                     {
-                        //store coupon details
-                        String cat = cpn.category.ToString();
-                        decimal disc_pct = Convert.ToDecimal(cpn.disc_pct);
-                        decimal discount = 0;
+                        //if cart does not have a coupon applied
+                        if (!hasCoupon(cart_id)){
+                            //store coupon details
+                            String cat = cpn.category.ToString();
+                            decimal disc_pct = Convert.ToDecimal(cpn.disc_pct);
+                            decimal discount = 0;
 
-                        //retrieve associated event
-                        var ev = db.events.SingleOrDefault(e => e.ev_id == cpn.event_id);
+                            //retrieve associated event
+                            var ev = db.events.SingleOrDefault(e => e.ev_id == cpn.event_id);
 
-                        //check if current date is valid for event
-                        if (DateTime.Now >= ev.start_date && DateTime.Now <= ev.end_date)
-                        {
-                            
-                            for (int i = 0; i < items.Count; i++)
+                            //if current date is valid for event
+                            if (DateTime.Now >= ev.start_date && DateTime.Now <= ev.end_date)
                             {
-                                //find specific cart item in products table and check its category
-                                cart_items item = items[i];
-                                var prod = db.products.Find(item.prod_id);
-                                if (string.Equals(prod.product_cat, cat))
-                                {
-                                    //change cart item price
-                                    if (prod.price == item.price)
-                                    {
-                                        discount = item.price * (disc_pct / 100);
-                                        item.price -= discount;
-                                    }
 
+                                for (int i = 0; i < items.Count; i++)
+                                {
+                                    //find specific cart item in products table and check its category
+                                    cart_items item = items[i];
+                                    var prod = db.products.Find(item.prod_id);
+                                    if (string.Equals(prod.product_cat, cat))
+                                    {
+                                        //change cart item price
+                                        if (prod.price == item.price)
+                                        {
+                                            discount = item.price * (disc_pct / 100);
+                                            item.price -= discount;
+                                        }
+
+                                    }
                                 }
+                                var cart = db.carts.Find(cart_id);
+                                cart.coup_id = cpn.coup_id;
+                                db.SaveChanges();
                             }
-                            db.SaveChanges();
+                            //if coupon code is invalid for specific event time
+                            else
+                            {
+                                TempData["ErrorMessage"] = "This coupon code is no longer valid.";
+                                return RedirectToAction("Cart", "Checkout");
+                            }
                         }
-                        //if coupon code is invalid for specific event time
                         else
                         {
-                            TempData["ErrorMessage"] = "This coupon code is no longer valid.";
+                            TempData["ErrorMessage"] = "You already applied a coupon.";
                             return RedirectToAction("Cart", "Checkout");
                         }
                     }
@@ -205,6 +207,16 @@ namespace EcommApp.Controllers
             }
         }
         
+        public Boolean hasCoupon(int cid)
+        {
+            var cart = db.carts.Find(cid);
+            if(cart.coup_id == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public String GetOrigPrice(int pid)
         {
             string price = (from x in db.products
@@ -276,6 +288,9 @@ namespace EcommApp.Controllers
                     placedOrder.grand_total = total + 50;
                     db.orders.Add(placedOrder);
 
+                    //reset coupon on cart
+                    var cart = db.carts.Find(cart_id);
+                    cart.coup_id = null;
 
                     db.SaveChanges();
                     TempData["ConfirmationMessage"] = "Your order has been placed!";
