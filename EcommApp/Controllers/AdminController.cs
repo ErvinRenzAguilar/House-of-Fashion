@@ -338,6 +338,13 @@ namespace EcommApp.Controllers
             if (Session["admin_id"] != null)
             {
                 @event evt = db.events.Find(id);
+                //find coupons related to event
+                List<int> couponsToDelete = db.coupons.Where(c => c.event_id == id).Select(c => c.coup_id).ToList();
+                foreach (int coupon in couponsToDelete)
+                {
+                    DeleteCoupon(coupon);
+                }
+                //
                 db.events.Remove(evt);
                 db.SaveChanges();
                 return RedirectToAction("ManageEvents");
